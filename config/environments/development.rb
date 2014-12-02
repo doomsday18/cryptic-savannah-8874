@@ -1,4 +1,4 @@
-Rails.application.configure do
+Riserva::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -19,7 +19,7 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Raise an error on page load if there are pending migrations.
+  # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
   # Debug mode disables concatenation and preprocessing of assets.
@@ -27,11 +27,10 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Adds additional error checking when serving assets at runtime.
-  # Checks for improperly declared sprockets dependencies.
-  # Raises helpful error messages.
-  config.assets.raise_runtime_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+RECAPTCHA_PUBLIC_KEY = '6Lf5yegSAAAAAKT_iRpahjQYQDWNilSIedP8G7Ce'
+RECAPTCHA_PRIVATE_KEY = '6Lf5yegSAAAAAH2mbOOZaz_PqYUb83EbJhbaBGwU'
 end
