@@ -39,8 +39,7 @@ function add_fields(link, association, content) {
 }
 
 
-<script type="text/javascript">
-
+<script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-21225035-2']);
       _gaq.push(['_trackPageview']);
