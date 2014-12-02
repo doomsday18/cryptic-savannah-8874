@@ -12,10 +12,10 @@
  *= require_tree .
  */
 /*= require formtastic
-*= require my_formtastic_changes
+/*= require my_formtastic_changes
 
- # app/assets/stylesheets/ie6.css
-  *= require formtastic_ie6
+ /# app/assets/stylesheets/ie6.css
+  /*= require formtastic_ie6
   
   # app/assets/stylesheets/ie7.css
-  *= require formtastic_ie7 */
+  /*= require formtastic_ie7 */
