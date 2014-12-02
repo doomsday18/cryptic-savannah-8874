@@ -1,0 +1,33 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Ricerca Avanzata", new_animalisearch_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p>
+<hr><br>
+<h2>Modulo 3-Sezione zoologica (animale)</h2>
+<%= will_paginate @segnalazione_animalis, :previous_label => 'Prec', :next_label => 'Succ' %>
+<table class="table1">
+  <tr>
+    <th>Titolo</th><br>
+    <th>Classe</th>
+    <th>Creato il:</th>
+    <th></th>
+  </tr>
+    <% @segnalazione_animalis.each do |segnalazione_animali| %>
+      <tr>
+        <td><%= segnalazione_animali.Titolo  %></td>
+        <td><%= segnalazione_animali.classe  %></td>
+        <td><%= l(segnalazione_animali.created_at, format:"%e %B %Y %k:%M:%S") %></td>
+        <td><%= link_to 'Mostra', [segnalazione_animali.user, segnalazione_animali],:target => "_blank" %></td>
+      </tr>
+    <% end %>
+  </table>
+<%= will_paginate @segnalazione_animalis, :previous_label => 'Prec', :next_label => 'Succ' %>
+<br/><br/><br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione', segnalazioni_path %>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

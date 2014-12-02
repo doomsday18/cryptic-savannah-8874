@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div class ="container">
+<h2>Informazioni utili per una corretta compilazione delle Variabili</h2>
+<table class="table", align="center">
+<tr>
+<td><h3><font color="red">Inizio/Fine Transetti</font></h3></td>
+<td>Immettere il nome di un punto di riferimento rintracciabile o le coordinate geografiche coincidenti con ad esempio la linea di mezzeria del percorso dei punti scelti come inizio e come fine.</td>
+</tr>
+<tr>
+<td><h3><font color="red">Orientamento</font></h3></td>
+<td>Indicare la direzione del transetto ideale rispetto al nord geografico</td>
+</tr>
+<tr>
+<td><h3><font color="red">Dislivello</font></h3></td>
+<td>Indicare l'intervallo di quota</td>
+</tr>
+<tr>
+<td><h3><font color="red">Checkbox</font></h3></td>
+<td>Possono essere vidimate piu' scelte</td>
+</tr>
+<tr>
+<td><h3><font color="red">Note</font></h3></td>
+<td>Specificare il criterio in particolare se la disposizione risulta essere preferenziale</td>
+</tr>
+
+
+</tr>
+  </table>
+
+</div>
+<div class="maincontent">
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>
+
+
+

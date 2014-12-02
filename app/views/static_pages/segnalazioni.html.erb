@@ -1,0 +1,10 @@
+<div class="maincontent">
+<%= render 'spiegazioneModulo3'%><br/>
+<p class="pulsanteverde"><%= link_to "Sezione botanica (vegetale)", new_user_segnalazione_vegetali_path(current_user),'data-no-turbolink' => true  %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Sezione zoologica (animale)", new_user_segnalazione_animali_path(current_user),'data-no-turbolink' => true  %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Minerali, Formazioni geologiche particolari o ritrovamenti fossili", new_user_segnalazione_minerali_path(current_user),'data-no-turbolink' => true  %><br/></p><br/>
+<br/><br/>
+
+
+<%= render 'layouts/footer' %>
+</div>

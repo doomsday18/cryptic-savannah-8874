@@ -1,0 +1,22 @@
+<div class="maincontent">
+<%if current_user.role == "admin"%>
+<h2> Benvenuto nella pagina utente </h2><br/><br/>
+  <p class="pulsanteverde"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Nuovo Progetto", nuovoprogetto_path %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Invia Segnalazione", segnalazioni_path %><br/></p><br/><br/><br/><br/><br/><br/><br/>
+<p class="pulsanteblu"><%= link_to "Modifica Dati Personali", edit_user_registration_path %><br/></p>
+<%if current_user.role == "admin"%>
+<p class="pulsanteblu"><%= link_to "Pagina Admin", pagina_admin_path %><br/></p>
+ <%end%>
+<%= render 'layouts/footer' %>
+<%else%>
+<h2> Benvenuto nella pagina utente </h2><br/><br/>
+  <p class="pulsanteverde"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Nuovo Progetto", nuovoprogetto_path %><br/></p><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Invia Segnalazione", segnalazioni_path %><br/></p><br/><br/><br/><br/><br/><br/><br/>
+<p class="pulsanteblu"><%= link_to "Modifica Dati Personali", edit_user_registration_path %><br/></p>
+<%= render 'layouts/footer' %>
+
+<%end%>
+
+</div>

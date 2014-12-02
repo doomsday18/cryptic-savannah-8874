@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div class ="container">
+<%= render 'categorieufficiali' %>
+
+</div>
+<div class="maincontent">
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>

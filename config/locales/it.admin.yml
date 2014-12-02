@@ -1,0 +1,8 @@
+  it:
+  admin:
+     actions:
+         dashboard:
+         breadcumb: "Topolino"
+         title: "Paperino"
+         menu: 'pippo'
+

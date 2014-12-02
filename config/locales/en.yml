@@ -21,3 +21,18 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: 
+        password:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: ":Il campo non può essere vuoto"
+            password:
+              blank: ":Il campo non può essere vuoto"
+              
+  

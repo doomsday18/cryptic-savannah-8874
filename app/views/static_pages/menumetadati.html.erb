@@ -1,0 +1,16 @@
+<div class="maincontent">
+<h2>Consultazione Moduli</h2>
+ <% if user_signed_in? %>   
+<br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 1", metadati_modulo1_path %><br/></p><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 2", metadati_modulo2_path %><br/></p><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 3-Sezione botanica (vegetale)", metadati_vegetale_path %><br/></p><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 3-Sezione zoologica (animale)", metadati_animale_path %><br/></p><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 3-Minerali, Formazioni geologiche particolari o ritrovamenti fossili",metadati_minerale_path  %><br></p><br/>
+<% else %> 
+<br/><br/><br/>
+<h2>Per accedere ai metadati della Riserva o per proporre un nuovo progetto effettuare il login oppure registrarsi</h2>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<%end%>
+<%= render 'layouts/footer' %>
+</div>

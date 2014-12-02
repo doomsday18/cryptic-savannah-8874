@@ -1,0 +1,24 @@
+<table class="table3">
+    <tr>
+      <th>Email Utente</th>
+      <th>Ruolo</th>
+      <th>Possibili Ruoli <p class= "pulsantehelp"><%= link_to "?",legendaruoli_path ,:target => "_blank"  %></p><br/><br/></th>
+      <th>Modifica Ruolo</th>
+     
+    
+    </tr>
+  
+
+<% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= form_for(user) do |f| %>
+          <%= f.collection_select :role, User::ROLES, :to_s, :humanize %></td>
+          <td><%= f.submit 'Modifica Ruolo', :class => 'button-xs' %>
+          <% end %></td>
+        </tr>
+  
+    <% end %>
+
+</table><br><br>

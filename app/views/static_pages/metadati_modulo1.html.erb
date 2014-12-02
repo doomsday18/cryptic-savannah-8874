@@ -1,0 +1,42 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Ricerca Avanzata", new_modulo1search_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p>
+<hr><br>
+<h2>Modulo 1</h2>
+<%= will_paginate @modulo1s, :previous_label => 'Prec', :next_label => 'Succ' %>
+<table class="table1">
+    <tr>
+      <th>Nome progetto</th>
+      <th>Creato il:</th>    
+      <th>Ultima Modifica il:</th>
+      <th>Utente</th>
+     <th></th>
+    </tr>
+  
+
+<% @modulo1s.each do |modulo1| %>
+      <tr>
+        <td><%= modulo1.nome_progetto %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= l(modulo1.created_at, format: "%e %B %Y %H:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= l(modulo1.updated_at, format: "%e %B %Y %H:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= modulo1.user.email %></td>
+        
+        <td><%= link_to 'Mostra', [modulo1.user, modulo1], :target => "_blank"  %>&nbsp;&nbsp;</td>
+      
+      </tr>
+    <% end %>
+
+</table>
+<%= will_paginate @modulo1s, :previous_label => 'Prec', :next_label => 'Succ' %>
+
+<br/><br/><br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to "Proponi un nuovo progetto", nuovoprogetto_path %><br/></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+

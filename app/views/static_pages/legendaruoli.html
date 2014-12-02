@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div class ="container">
+<h2>Informazioni sull'assegnazione dei Ruoli</h2>
+<table class="table", align="center">
+<tr>
+<td><h3><font color="red">Admin</font></h3></td>
+<td>Amministratore del sito, ha accesso ad ogni elemento</td>
+</tr>
+<tr>
+<td><h3><font color="red">Simpleuser</font></h3></td>
+<td>Utente registrato. Abilitato a compilare il Modulo 1 e inviare le Segnalazioni, oltre a poter visualizzare i metadati</td>
+</tr>
+<tr>
+<td><h3><font color="red">Superuser</font></h3></td>
+<td>Utente la cui proposta di progetto presentata attraverso il Modulo 1 è stata approvata e che può procedere alla compilazione del Modulo 2</td>
+</tr>
+<tr>
+<td><h3><font color="red">Banned</font></h3></td>
+<td>Utente che ha violato qualche regola del sito e quindi non ha possibilità di accesso a nessun elemento</td>
+</tr>
+
+</tr>
+  </table>
+
+</div>
+<div class="maincontent">
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,53 @@
+<login class="login">
+<div id="login">
+<br/>
+<% if user_signed_in? %>
+<h3>Utente Corrente</h3>
+              <%if current_user.role == "admin"%>
+              <ul><%= current_user.email %></ul>
+              <ul>(<%= current_user.role %>)</ul><br/>
+              <ul><p class="bottoneverde"><%= link_to "Pagina Utente", user_pages_path %> </p></ul><br/>
+              <ul>
+              <ul>oppure</ul> <br/><br/>
+              <p class="bottoneverde"><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p></ul><br/><br/><br/><br/>
+              <ul>
+              <p class="bottoneblu"><%= link_to "Modifica Dati Personali", edit_user_registration_path %><br/></ul>
+              <ul><br/>
+              <p class="bottoneblu"><%= link_to "Pagina Admin", pagina_admin_path %><br/></ul>
+              <%else%>
+              <ul><%= current_user.email %></ul>
+              <ul>(<%= current_user.role %>)</ul><br/>
+              <ul><p class="bottoneverde"><%= link_to "Pagina Utente", user_pages_path %> </p></ul><br/>
+              <ul>
+              <ul>oppure</ul> <br/><br/>
+              <p class="bottoneverde"><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p></ul><br/><br/><br/><br/><br/><br/>
+              <ul><br/><br/>
+              <p class="bottoneblu"><%= link_to "Modifica Dati Personali", edit_user_registration_path %><br/></ul>
+              <%end%>
+              <% else %>       
+              
+<h3>Login</h3><br/>
+
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <plogin><%= f.label :email %>
+  <%= f.email_field :email, :autofocus => true %></plogin>
+
+  <plogin><%= f.label :password %>
+  <%= f.password_field :password %></plogin><br/>
+
+  <% if devise_mapping.rememberable? -%>
+    <plogin><%= f.check_box :remember_me %> <%= f.label :remember_me, "Ricordami" %></plogin>
+  <% end -%><br/>
+
+  <plogin><%= f.submit "Login" %></plogin>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+  <br/><p> oppure </p><br/><br/>
+  
+  <p class="bottoneverde"><%= link_to "Registrati", new_user_registration_path,:data => { :no_turbolink => true } %></p>
+<% end %>  
+
+</div>
+</login>

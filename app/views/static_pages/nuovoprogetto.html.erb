@@ -1,0 +1,14 @@
+<div class="maincontent">
+<h2> Proponi un nuovo progetto </h2><br/><br/>
+<%if current_user.role == "superuser" || current_user.role == "admin"%>
+<p class="pulsanteverde"><%= link_to "Modulo 1", new_user_modulo1_path(current_user),'data-no-turbolink' => true %><br/></p><br/><br/><br/><br/><br/><br/>
+<p class="pulsanteverde"><%= link_to "Modulo 2", new_user_modulo2_path(current_user),'data-no-turbolink' => true %><br/></p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+<%elsif current_user.role == "simpleuser"%>
+	<p class="pulsanteverde"><%= link_to "Modulo 1", new_user_modulo1_path(current_user),'data-no-turbolink' => true%><br/></p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<p class="pulsantegrigio">Modulo 2<br/></p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     
+<%= render 'layouts/footer' %>
+<%end%>
+
+</div>

@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+       <div class="container">
+          <%= link_to "Home", root_path, id: "logo"%>
+            <nav>
+            <ul class="nav pull-right">
+              <% if current_user %>
+              <li><%= link_to "Logout", destroy_user_session_path,:method => :delete %></li>
+              <% else %>
+              <li><%= link_to "Registrati", new_user_registration_path ,:data => { :no_turbolink => true } %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <% end %>
+              <li><a href="https://maps.google.it/maps?expflags=enable_star_based_justifications:true&ie=UTF8&cid=1083164715368920240&q=Riserva+Statale+Montagna+di+Torricchio&iwloc=A&gl=IT&hl=it"target=”_blank”>Dove Siamo</a></li>                    
+            </ul>
+          </nav>
+          </div>
+     </div>
+</header>
