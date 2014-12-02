@@ -21,7 +21,7 @@
 //= require_tree
 //= require jquery_nested_form
 
-//*= require select2
+//= require select2
 //= require select2_locale_it
 //= require dynamic_select
 
@@ -39,7 +39,8 @@ function add_fields(link, association, content) {
 }
 
 
-<script>
+<script type="text/javascript">
+
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-21225035-2']);
       _gaq.push(['_trackPageview']);
