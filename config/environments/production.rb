@@ -83,7 +83,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address => "127.0.0.1",
   :port    => 25,
-  :domain  => 'cryptic-savannah-8874.herokuapp.com'
+  :domain  => 'https://cryptic-savannah-8874.herokuapp.com/'
 }
 
 
