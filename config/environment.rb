@@ -5,3 +5,5 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 ENV['RECAPTCHA_PUBLIC_KEY'] = '6Lf3tugSAAAAALfTw-vOA0MLrx0VBFDHjd6Uw-VO'
 ENV['RECAPTCHA_PRIVATE_KEY'] = '6Lf3tugSAAAAAPKje4xrv2xWMWSHqwZMBX-W1s8m'
+
+  config.action_mailer.default_url_options = { :host => 'cryptic-savannah-8874.herokuapp.com' }
