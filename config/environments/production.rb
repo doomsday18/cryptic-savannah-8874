@@ -78,14 +78,17 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => 25,
-  :domain  => 'yourdomain.com'
-}
 
+
+config.action_mailer.default_url_options = { :host => 'http://cryptic-savannah-8874.herokuapp.com' }
+ActionMailer::Base.smtp_settings = {
+  :address        => "smtp.sendgrid.net",
+  :port           => "25",
+  :authentication => :plain,
+  :user_name      => ENV['app32142477@heroku.com'],
+  :password       => ENV['kqlmgrdx'],
+  :domain         => ENV['heroku.com']
+}
 
 
 RECAPTCHA_PUBLIC_KEY = '6Lf5yegSAAAAAKT_iRpahjQYQDWNilSIedP8G7Ce'
