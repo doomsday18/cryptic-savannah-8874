@@ -11,7 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204225456) do
+ActiveRecord::Schema.define(version: 20141204230857) do
+
+  create_table "naziones", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "provinces", force: true do |t|
+    t.string   "nome"
+    t.integer  "regione_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "provinces", ["regione_id"], name: "index_provinces_on_regione_id", using: :btree
+
+  create_table "regiones", force: true do |t|
+    t.string   "nome"
+    t.integer  "nazione_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "regiones", ["nazione_id"], name: "index_regiones_on_nazione_id", using: :btree
+
+  create_table "segnalazione_animalis", force: true do |t|
+    t.string   "Titolo"
+    t.string   "classe"
+    t.string   "epiteto"
+    t.string   "genere"
+    t.string   "specie"
+    t.string   "autore"
+    t.boolean  "foto"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "segnalazione_animalis", ["user_id"], name: "index_segnalazione_animalis_on_user_id", using: :btree
 
   create_table "segnalazione_mineralis", force: true do |t|
     t.string   "titolo"
@@ -22,6 +61,22 @@ ActiveRecord::Schema.define(version: 20141204225456) do
   end
 
   add_index "segnalazione_mineralis", ["user_id"], name: "index_segnalazione_mineralis_on_user_id", using: :btree
+
+  create_table "segnalazione_vegetalis", force: true do |t|
+    t.string   "Titolo"
+    t.string   "famiglia_macro"
+    t.string   "genere_macro"
+    t.boolean  "foto"
+    t.string   "famiglia_micro"
+    t.string   "genere_micro"
+    t.boolean  "microfoto"
+    t.boolean  "campione"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "segnalazione_vegetalis", ["user_id"], name: "index_segnalazione_vegetalis_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
