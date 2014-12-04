@@ -4,11 +4,16 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-     
+      if verify_recaptcha 
           super
-     
-     
-  end
+      else
+        flash.delete(:recaptcha_error)
+        build_resource
+        clean_up_passwords(resource)
+        flash[:notice] = "Errore con il codice captcha. Inserire di nuovo il codice."
+        render :new
+      end
+end
 
 def update
   super
