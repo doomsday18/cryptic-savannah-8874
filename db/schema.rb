@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204230857) do
+ActiveRecord::Schema.define(version: 20141205111422) do
+
+  create_table "categories", force: true do |t|
+    t.integer  "macrocategorie_id"
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["macrocategorie_id"], name: "index_categories_on_macrocategorie_id", using: :btree
+
+  create_table "macrocategories", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "microcategories", force: true do |t|
+    t.integer  "categorie_id"
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "microcategories", ["categorie_id"], name: "index_microcategories_on_categorie_id", using: :btree
 
   create_table "naziones", force: true do |t|
     t.string   "nome"
