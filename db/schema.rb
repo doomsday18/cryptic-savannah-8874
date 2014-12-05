@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205111422) do
+ActiveRecord::Schema.define(version: 20141205194935) do
 
   create_table "categories", force: true do |t|
     t.integer  "macrocategorie_id"
@@ -36,6 +36,49 @@ ActiveRecord::Schema.define(version: 20141205111422) do
   end
 
   add_index "microcategories", ["categorie_id"], name: "index_microcategories_on_categorie_id", using: :btree
+
+  create_table "modulo1s", force: true do |t|
+    t.string   "nome_progetto"
+    t.string   "istituzione_riferimento_progetto"
+    t.string   "istituzioni_coinvolte_progetto"
+    t.text     "settore_scientifico_progetto"
+    t.text     "obiettivi_progetto"
+    t.datetime "data_inizio_progetto"
+    t.datetime "data_fine_progetto"
+    t.text     "url_progetto"
+    t.text     "background_razionale"
+    t.text     "assiomi_background"
+    t.text     "domande_background"
+    t.text     "ipotesi_background"
+    t.text     "note_background"
+    t.string   "tipologia_organizzazione"
+    t.string   "altro_organizzazione"
+    t.string   "campo_studio_applicazione_organizzazione"
+    t.string   "nazione_organizzazione"
+    t.string   "regione_organizzazione"
+    t.string   "provincia_organizzazione"
+    t.string   "indirizzo_organizzazione"
+    t.string   "tel_organizzazione"
+    t.string   "email_organizzazione"
+    t.string   "persona_di_riferimento_organizzazione"
+    t.string   "coordinatore_relatore_team"
+    t.text     "url_organizzazione"
+    t.string   "titolare_rilevatore_team"
+    t.text     "elenco_nominale_operatori_tecnici_team"
+    t.integer  "user_id"
+    t.string   "responsabile_riferimento_rnt"
+    t.boolean  "Approvato"
+    t.string   "macrocat_sett_scient"
+    t.string   "cat_sett_scient"
+    t.string   "microcatt_sett_scient"
+    t.integer  "macrocategorie_id"
+    t.integer  "categorie_id"
+    t.integer  "microcategorie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "modulo1s", ["user_id"], name: "index_modulo1s_on_user_id", using: :btree
 
   create_table "naziones", force: true do |t|
     t.string   "nome"
@@ -101,6 +144,22 @@ ActiveRecord::Schema.define(version: 20141205111422) do
   end
 
   add_index "segnalazione_vegetalis", ["user_id"], name: "index_segnalazione_vegetalis_on_user_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "nome"
+    t.string   "cognome"
+    t.string   "ruolo"
+    t.string   "istituzione"
+    t.string   "indirizzo"
+    t.string   "email"
+    t.string   "tel"
+    t.string   "cell"
+    t.integer  "modulo2_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["modulo2_id"], name: "index_teams_on_modulo2_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
