@@ -57,7 +57,7 @@ def update
       end
     end
   end
-end
+
 
   def destroy
     modulo2 = Modulo2.find(params[:modulo2_id])
@@ -74,8 +74,8 @@ end
    def set_plot
       @plot = Plot.find(params[:id])
     end
-
 end
+
 
 
 
