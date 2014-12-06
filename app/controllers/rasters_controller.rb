@@ -74,8 +74,5 @@ def update
       @raster = Raster.find(params[:id])
     end
 
-end
-
-end
 
 end
