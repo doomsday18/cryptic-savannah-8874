@@ -74,6 +74,6 @@ def update
       @transetti = Transetti.find(params[:id])
     end
 
-end
+
 
 
