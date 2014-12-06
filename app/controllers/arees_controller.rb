@@ -10,7 +10,7 @@ def show
       format.xml  { render :xml => @aree }
   end
     end
-  end
+  
 
 def new
   modulo2 = Modulo2.find(params[:modulo2_id])
@@ -41,7 +41,7 @@ def edit
       end
     end
  end
-end
+
 
 
 def update
@@ -76,6 +76,6 @@ def update
 
 end
 
-end
+
 
 
