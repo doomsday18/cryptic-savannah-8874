@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205194935) do
+ActiveRecord::Schema.define(version: 20141206091058) do
 
   create_table "categories", force: true do |t|
     t.integer  "macrocategorie_id"
@@ -86,6 +86,26 @@ ActiveRecord::Schema.define(version: 20141205194935) do
     t.datetime "updated_at"
   end
 
+  create_table "organizzazione_di_riferimentos", force: true do |t|
+    t.string   "nome"
+    t.integer  "nazione_id"
+    t.integer  "regione_id"
+    t.integer  "provincia_id"
+    t.string   "indirizzo"
+    t.string   "referente"
+    t.string   "email"
+    t.string   "tel"
+    t.string   "cell"
+    t.integer  "modulo2_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organizzazione_di_riferimentos", ["modulo2_id"], name: "index_organizzazione_di_riferimentos_on_modulo2_id", using: :btree
+  add_index "organizzazione_di_riferimentos", ["nazione_id"], name: "index_organizzazione_di_riferimentos_on_nazione_id", using: :btree
+  add_index "organizzazione_di_riferimentos", ["provincia_id"], name: "index_organizzazione_di_riferimentos_on_provincia_id", using: :btree
+  add_index "organizzazione_di_riferimentos", ["regione_id"], name: "index_organizzazione_di_riferimentos_on_regione_id", using: :btree
+
   create_table "provinces", force: true do |t|
     t.string   "nome"
     t.integer  "regione_id"
@@ -103,6 +123,18 @@ ActiveRecord::Schema.define(version: 20141205194935) do
   end
 
   add_index "regiones", ["nazione_id"], name: "index_regiones_on_nazione_id", using: :btree
+
+  create_table "riferimenti_spazialis", force: true do |t|
+    t.string   "punti"
+    t.string   "coordinate"
+    t.string   "ev_descrizione"
+    t.text     "descrizione_globale"
+    t.integer  "modulo2_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "riferimenti_spazialis", ["modulo2_id"], name: "index_riferimenti_spazialis_on_modulo2_id", using: :btree
 
   create_table "segnalazione_animalis", force: true do |t|
     t.string   "Titolo"
@@ -144,6 +176,20 @@ ActiveRecord::Schema.define(version: 20141205194935) do
   end
 
   add_index "segnalazione_vegetalis", ["user_id"], name: "index_segnalazione_vegetalis_on_user_id", using: :btree
+
+  create_table "sistemi_biologicis", force: true do |t|
+    t.text     "tipologia"
+    t.text     "riferimento"
+    t.text     "componenti"
+    t.text     "note"
+    t.text     "referenze"
+    t.text     "descrizione"
+    t.integer  "modulo2_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sistemi_biologicis", ["modulo2_id"], name: "index_sistemi_biologicis_on_modulo2_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "nome"
