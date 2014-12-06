@@ -57,6 +57,7 @@ def update
       end
     end
   end
+end
 
   def destroy
     modulo2 = Modulo2.find(params[:modulo2_id])
@@ -76,5 +77,5 @@ def update
 
 end
 
-end
+
 
