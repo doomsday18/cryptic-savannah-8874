@@ -74,4 +74,4 @@ def update
       @riferimenti_spaziali = RiferimentiSpaziali.find(params[:id])
     end
 
-end
+
