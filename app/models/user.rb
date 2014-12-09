@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	include ActiveModel::Validations
+  include ActiveModel::Validations
       before_create :set_default_role
       validates_acceptance_of :terms_of_service, :on => :create
         #enum role: [:admin, :superuser, :simpleuser, :banned]

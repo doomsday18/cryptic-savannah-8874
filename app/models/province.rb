@@ -1,3 +1,5 @@
 class Province < ActiveRecord::Base
-  belongs_to :regione
+  belongs_to :regiones
+
+  attr_accessible :nome, :regione_id
 end
