@@ -1,0 +1,26 @@
+<table class="table3" align="center">
+<tr>
+<th>Punti</th>
+<th>Coordinate</th>
+<th>Ev. Descrizione</th>
+</tr>
+  
+   <ul>
+  
+    <% for riferimenti_spaziali in @modulo2.riferimenti_spazialis %>
+         <%if riferimenti_spaziali.punti.presence %>
+      <tr>
+      <td><%= riferimenti_spaziali.punti %> </td>
+      <td><%= riferimenti_spaziali.coordinate %> </td>
+      <td><%= riferimenti_spaziali.ev_descrizione %> </td>
+    
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>
+
+    

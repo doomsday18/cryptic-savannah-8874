@@ -1,0 +1,9 @@
+     <% for raster in @modulo2.rasters %>
+         <%if raster.descrizione.presence %>
+         <div class="form-field1">    
+           <%= label :descrizione,"Descrizione"%>
+          <%= raster.descrizione %><br/>
+          </div><br/>
+         <%end%>
+    <% end %>
+  

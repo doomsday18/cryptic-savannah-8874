@@ -1,0 +1,7 @@
+   <tr>
+        <td><%= modulo1.nome_progetto %></td>
+        <td><%= modulo1.macrocat_sett_scient %></td>
+        <td><%= l(modulo1.created_at, format: "%e %B %Y %H:%M:%S") %></td>
+        <td><%= l(modulo1.updated_at, format: "%e %B %Y %H:%M:%S") %></td>
+        <td><%= link_to 'Mostra', [modulo1.user, modulo1] ,:target => "_blank" %></td>
+   </tr>

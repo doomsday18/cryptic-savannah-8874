@@ -1,0 +1,160 @@
+<h2>Proposta per un nuovo progetto:<br/> Modulo 1</h2><br/>
+<div class="form-container">
+<%= form_for([@modulo1.user, @modulo1]) do |f| %>
+  <% if @modulo1.errors.any? %>
+     <% if @modulo1.errors.count > 1 %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@modulo1.errors.count, "") %> Errori nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2><br/>
+          </div>
+     <%else%>
+          <div id="error_explanation">
+          <h2><%= pluralize(@modulo1.errors.count, "") %> Errore nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2></div><br/>
+      <%end%>
+  <% end %>
+
+ <h2>Progetto</h2><br/>
+
+  <div class="form-field">  
+    <%= f.label :Nome_del_progetto,"Nome del Progetto*" %><br>
+    <%= f.text_field :nome_progetto %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :responsabile_riferimento_rnt,"Responsabile di Riferimento RNT" %><br>
+    <%= f.text_field :responsabile_riferimento_rnt %>
+  </div>
+  
+  <div class="form-field">
+    <%= f.label :Istituzione_di_riferimento_del_progetto %><br>
+    <%= f.text_field :istituzione_riferimento_progetto %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Istituzioni_coinvolte_nel_progetto %><br>
+    <%= f.text_field :istituzioni_coinvolte_progetto %>
+  </div>
+  <div class="form-field">
+    <%= f.label :macrocategorie_id,"Macrocategorie" %><br>
+    <%= f.collection_select :macrocategorie_id, Macrocategorie.order(:nome), :id, :nome, {:prompt => "Seleziona una Macrocategoria"} %>
+    <%= f.label :categorie_id,"Categoria" %>
+    <%= f.grouped_collection_select :categorie_id, Macrocategorie.order(:nome),:categories,:nome, :id,:nome,  {:prompt => "Seleziona una Categoria"}%>
+    <%= f.label :microcategorie_id,"Sottocategoria" %>
+    <%= f.grouped_collection_select :microcategorie_id, Categorie.order(:nome),:microcategories,:nome,:id, :nome,  {:prompt => "Seleziona una Microcategoria"} %><br>
+    <%= link_to 'Mostra Settori Scientifici Ufficiali LTER', legendacategorie_path ,:target => "_blank"  %><br/>
+    
+ </div>
+    
+  <div class="form-field">
+    <%= f.label :Obiettivi %><br>
+    <%= f.text_area :obiettivi_progetto %>
+  </div>
+  <div class="form-field">
+    <%= f.label :data_di_inizio_progetto %><br>
+    <%= f.date_select :data_inizio_progetto, :order => [:month, :year], :discard_days => true %>
+    
+  </div>
+  <div class="form-field">
+    <%= f.label :data_di_fine_progetto %><br>
+    <%= f.date_select :data_fine_progetto, :order => [:month, :year], :discard_days => true %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Url_ %><br>
+    <%= f.text_area :url_progetto %>
+  </div>
+   <h2>Background e razionale</h2><br/>
+  <div class="form-field">
+    
+    <%= f.text_area :background_razionale %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Assiomi_e_Definizioni, "Assiomi/Definizioni" %><br>
+    <%= f.text_area :assiomi_background %>
+  </div>
+  <div class="form-field">
+    <%= f.label :domande_aperte,"Domande aperte e problemi(scopi)" %><br>
+    <%= f.text_area :domande_background %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Ipotesi %><br>
+    <%= f.text_area :ipotesi_background %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Note %><br>
+    <%= f.text_area :note_background %>
+  </div>
+   <h2>Organizzazione/i di riferimento</h2><br/>
+  <div class="form-field">
+    <%= f.label :Tipologia %><br>
+    <%= f.text_field :tipologia_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Altro %><br>
+    <%= f.text_field :altro_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :campo_studio_applicazione_organizzazione,"Campo di studio o applicazione" %><br>
+    <%= f.text_area :campo_studio_applicazione_organizzazione %>
+  </div>
+
+
+  <div class="form-field">
+ <%= f.label :Nazione%><br />
+ <%= f.collection_select :nazione_organizzazione, Nazione.order(:nome), :nome, :nome,{:prompt => "Seleziona una Nazione"} %>
+ </div>
+  <div class="form-field">
+    <%= f.label :Regione %><br>
+    <%= f.text_field :regione_organizzazione, {:placeholder =>"Scrivi la regione"}%>
+    <p>oppure</p><br>
+    <%= f.grouped_collection_select :regione_organizzazione, Nazione.order(:nome), :regiones, :nome, :nome, :nome, {:prompt => "Seleziona una Regione"} %>
+  </div>
+  
+<div class="form-field">
+    <%= f.label :Provincia %><br>
+    <%= f.text_field :provincia_organizzazione,{:placeholder =>"Scrivi la provincia"} %>
+    <p>oppure</p><br>
+    <%= f.grouped_collection_select :provincia_organizzazione, Regione.order(:nome), :provinces, :nome, :nome, :nome, {:prompt => "Seleziona una Provincia"} %>
+    </div>
+
+ <div class="form-field">
+    <%= f.label :Indirizzo %><br>
+    <%= f.text_field :indirizzo_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :Tel %><br>
+    <%= f.text_field :tel_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :email_organizzazione,"e-mail" %><br>
+    <%= f.text_field :email_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :persona_di_riferimento_organizzazione,"Persona di riferimento e contatto" %><br>
+    <%= f.text_field :persona_di_riferimento_organizzazione %>
+  </div>
+  <div class="form-field">
+    <%= f.label :url_organizzazione,"URL(indirizzo internet)" %><br>
+    <%= f.text_area :url_organizzazione %>
+  </div>
+   <h2>Team</h2><br/>
+  <div class="form-field">
+    <%= f.label :coordinatore_relatore_team,"Coordinatore/Relatore" %><br>
+    <%= f.text_field :coordinatore_relatore_team %>
+  </div>
+  <div class="form-field">
+    <%= f.label :titolare_rilevatore_team,"Titolare/Rilevatore" %><br>
+    <%= f.text_field :titolare_rilevatore_team %>
+  </div>
+  <div class="form-field">
+    <%= f.label :elenco_nominale_operatori_tecnici_team,"Elenco Nominale operatori tecnici" %><br>
+    <%= f.text_area :elenco_nominale_operatori_tecnici_team %>
+  </div>
+  <div class="form-field">
+   
+  <%= f.label :Approvato  %><br>
+  <%= f.check_box :Approvato,{:checked =>@modulo1.Approvato } %>
+   
+  </div>
+  </div><br/>
+  <div class="actions">
+         <%= f.submit "Invia"%>
+  </div><br/>
+  <p2>* Campo obbligatorio</p2><br/>
+<% end %>

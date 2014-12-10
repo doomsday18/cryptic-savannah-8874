@@ -1,0 +1,156 @@
+<div class="form-field">  
+  <div class="items">
+<div class="form-field1">    
+    <%= f.label :nome,"Variabile"%>
+    <%= f.text_field :nome %><br/><br/>
+  
+    <%= f.label :variabile_misurata %>
+    <p>Si</p> <%= f.radio_button :variabile_misurata, 'Si'%> &nbsp
+    <p>No</p> <%= f.radio_button :variabile_misurata, 'No' %>
+    <br/><br/>
+    
+    <%= f.label :conteggio %>
+    <p>Si</p> <%= f.radio_button(:conteggio, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:conteggio, "No") %><br/><br/>
+
+    <%= f.label :stima,"Stima/Valutazione" %>
+    <p>Si</p> <%= f.radio_button(:stima, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:stima, "No") %><br/><br/>
+
+    <%= f.label :variabile_derivata %>
+    <p>Si</p> <%= f.radio_button(:variabile_derivata, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:variabile_derivata, "No") %><br/><br/>
+  
+    <%= f.label :scala %>
+    <%= f.text_field :scala %><br/><br/>
+  
+    <%= f.label :dimensione,"Dimensione/Unità" %>
+    <%= f.text_field :dimensione %><br/><br/>
+  
+    <%= f.label :note %>
+    <%= f.text_area :note %><br/><br/>
+    </div><br/>
+    <h2>Variabili Chimiche/Fisiche</h2><br/>
+
+<div class="form-field1">  
+    <%= f.label :variabile_chimico,"Variabile Chimica" %>
+    <p>Si</p> <%= f.radio_button(:variabile_chimico, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:variabile_chimico, "No") %><br/><br/>
+  
+    <%= f.label :variabile_fisica,"Variabile Fisica" %>
+    <p>Si</p> <%= f.radio_button(:variabile_fisica, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:variabile_fisica, "No") %><br/><br/>
+</div>
+<h2>Strumentazione/Sistema di Valutazione</h2><br/>
+<div class="form-field1">  
+    <%= f.label :tipo_attrezzatura,"Tipo di attrezzatura/Tipo di sistema di valutazione" %>
+    <%= f.text_area :tipo_attrezzatura %>
+  
+    <%= f.label :errore_strumentale,"Errore strumentale/Passo della scala di valutazione" %>
+    <%= f.text_area :errore_strumentale %>
+  
+    <%= f.label :tipo_misurazione,"Tipo di misurazione/tipo di scala" %>
+    <%= f.text_area :tipo_misurazione %>
+  
+    <%= f.label :taratura,"Taratura dello strumento/Esperienza" %>
+    <%= f.text_area :taratura %>
+</div>
+<h2>Metodologie e Tecniche</h2><br/>
+<div class="form-field1">  
+    <%= f.label :metodologia_rilevamento,"Metodologia o tecnica di rilevamento, stima, misurazione" %>
+    <%= f.text_area :metodologia_rilevamento %>
+  
+    <%= f.label :metodologia_raccolta,"Metodo di raccolta o registrazione" %>
+    <%= f.text_area :metodologia_raccolta %>
+  
+    <%= f.label :metodologia_trasporto,"Metodo di trasporto" %>
+    <%= f.text_area :metodologia_trasporto %>
+  
+    <%= f.label :metodologia_conservazione,"Metodo di conservazione" %>
+    <%= f.text_area :metodologia_conservazione %>
+  
+    <%= f.label :metodologia_laboratorio,"Metodo/i di laboratorio" %>
+    <%= f.text_area :metodologia_laboratorio %>
+  
+    <%= f.label :procedure,"Procedure" %>
+    <%= f.text_area :procedure %>
+</div>
+<div class="form-field1">
+    <%= f.label :aree,"Aree" %>
+    <p>Si</p> <%= f.radio_button(:aree, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:aree, "No") %><br/><br/>
+  
+    <%= f.label :comunita,"Comunità" %>
+    <p>Si</p> <%= f.radio_button(:comunita, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:comunita, "No") %><br/><br/>
+  
+
+    <%= f.label :popolazioni,"Popolazioni" %>
+    <p>Si</p> <%= f.radio_button(:popolazioni, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:popolazioni, "No") %><br/><br/>
+  
+    <%= f.label :individui,"Individui" %>
+    <p>Si</p> <%= f.radio_button(:individui, "Si") %>&nbsp
+    <p>No</p> <%= f.radio_button(:individui, "No") %><br/><br/>
+</div>
+<h2>Unità di Campionamento</h2><br/>
+<div class="form-field1">  
+<p><%= link_to "?",legendavariabili_path ,:target => "_blank"  %></p><br/><br/>
+    <%= f.label :numero_campionamento,"Numero" %>
+    <%= f.text_field :numero_campionamento %>
+  
+    <%= f.label :forma_campionamento,"Forma" %>
+    <%= f.text_field :forma_campionamento %>
+
+    <%= f.label :dimensione_campionamento,"Dimensione" %>
+    <%= f.text_field :dimensione_campionamento %>    
+  
+    <%= f.label :disposizione_campionamento,"Disposizione" %>
+    <%= f.hidden_field 'disposizione_campionamento[]', value: [] %>
+    <p>Random</p> <%= f.check_box :disposizione_campionamento, { :multiple => true }, "Random", nil %>&nbsp
+    <p>Sistematica</p> <%= f.check_box :disposizione_campionamento,{ :multiple => true }, "Sistematica", nil %>&nbsp
+    <p>Stratificata</p> <%= f.check_box :disposizione_campionamento,{ :multiple => true }, "Stratificata",nil %>&nbsp<br/>
+    <p>Contigua</p><%= f.check_box :disposizione_campionamento,{ :multiple => true }, "Contigua",nil %>&nbsp
+    <p>Non Contigua</p> <%= f.check_box :disposizione_campionamento,{ :multiple => true }, "Non Contigua",nil %>&nbsp
+    <p>Preferenziale</p> <%= f.check_box :disposizione_campionamento,{ :multiple => true }, "Preferenziale",nil %>&nbsp<br/><br/>
+
+    
+    <%= f.label :note_campionamento,"Note" %>
+    <%= f.text_area :note_campionamento %>
+ </div>
+ <h2>Transetto Ideale/Reale</h2><br/>
+    <div class="form-field1">  
+    <%= link_to "?", legendavariabili_path ,:target => "_blank"%><br/><br/>
+    <%= f.label :numero_transetti,"Numero" %>
+    <%= f.text_field :numero_transetti %>
+  
+    <%= f.label :forma_transetti,"Forma" %>
+    <%= f.text_field :forma_transetti %>
+
+    
+    <%= f.label :inizio_transetti,"Inizio" %> 
+    <%= f.text_field :inizio_transetti %>
+    
+    <%= f.label :fine_transetti,"Fine"%>
+    <%= f.text_field :fine_transetti %>
+   
+    <%= f.label :dislivello_transetti,"Dislivello" %>
+   
+    <%= f.text_field :dislivello_transetti %>
+  
+    <%= f.label :orientamento_transetti,"Orientamento"%>
+  
+    <%= f.text_field :orientamento_transetti %>
+  
+    <%= f.label :note_transetti,"Note" %>
+    <%= f.text_area :note_transetti %>
+    <br/>
+ </div>
+<%= f.hidden_field :id %>
+
+<%= f.link_to_remove "Rimuovi Variabile" %>
+
+</div>
+</div>
+  
+  

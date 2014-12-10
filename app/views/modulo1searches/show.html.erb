@@ -1,0 +1,43 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_modulo1search_path %></p>
+<hr>
+<h1>Risultati della ricerca</h1>
+<% if @modulo1search.modulo1s.blank? %>
+  <h2>Nessun Risultato Trovato</h2><br/>
+  <p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_modulo1search_path %></p>
+  <hr><br/>
+  <hr>
+  <p class="pulsanteverde"><%= link_to "Consulta i Progetti Esistenti", metadati_modulo1_path %></p>
+  <p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+  <hr>
+  
+  <hr><br/><br/><br/><br/><br/>
+  <%= render 'layouts/footer' %>
+<%else%>
+<p>Corrispondenze trovate: <%= @modulo1search.modulo1s.count %> </p><br/>
+    <table class="table1">
+    <tr>
+      <th>Nome progetto</th>
+      <th>Area</th>
+      <th>Creato il:</th>    
+      <th>Ultima Modifica il:</th>
+      <th></th>
+     
+    </tr>
+  
+   <%= render @modulo1search.modulo1s %>
+    </table>
+    
+<br/>
+<hr>
+<p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_modulo1search_path %></p>
+  <hr><br/>
+  <hr>
+  <p class="pulsanteverde"><%= link_to "Consulta i Progetti Esistenti", metadati_modulo1_path %></p>
+  <p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+  <hr>
+ <%end%>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+ </div>

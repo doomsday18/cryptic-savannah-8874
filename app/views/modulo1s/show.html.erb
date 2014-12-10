@@ -1,0 +1,174 @@
+<div class="maincontent">
+
+<div class="form-container">
+
+<h2>Progetto</h2>
+<br/>
+<div class="form-field">  
+  <h3>Nome del progetto:</h3><br/>
+  <p><%= @modulo1.nome_progetto %>  </p>
+  </div>
+<div class="form-field">  
+  <h3>Approvato:</h3><br/>
+  <p><%= @modulo1.Approvato %>  </p>
+  </div>
+<div class="form-field">  
+  <h3>Codice Identificativo:</h3><br/>
+  <p><%= @modulo1.id %>  </p>
+  </div>
+<div class="form-field">  
+  <h3>Responsabile di riferimento RNT:</h3><br/>
+  <p><%= @modulo1.responsabile_riferimento_rnt %></p>
+</div>
+<br/>
+
+<div class="form-field">  
+  <h3>Istituzione di riferimento del progetto:</h3>
+  <p><%= @modulo1.istituzione_riferimento_progetto %>
+</p></div>
+
+<div class="form-field">  
+  <h3>Istituzioni coinvolte nel progetto:</h3>
+ <p> <%= @modulo1.istituzioni_coinvolte_progetto %>
+</p>
+</div>
+
+<div class="form-field">  
+  <h3>Settore scientifico:</h3>
+  <p><%= simple_format @modulo1.settore_scientifico_progetto %></p>
+</div>
+<div class="form-field">  
+  <h3>Obiettivi:</h3>
+  <p><%= @modulo1.obiettivi_progetto %>
+</p>
+</div>
+
+<div class="form-field">  
+  <h3>Data di inizio progetto:</h3>
+  <p>  <%= l(@modulo1.data_inizio_progetto, format: "%B %Y") %>  </p>
+</div>
+
+<div class="form-field">
+  <h3>Data di fine progetto:</h3>
+  <p>  <%= l(@modulo1.data_fine_progetto, format: "%B %Y") %>  </p>
+</div>
+<div class="form-field">
+  <h3>Url:</h3>
+  <p><%= @modulo1.url_progetto %>
+</p>
+</div>
+<h2>Background e Razionale</h2><br/>
+
+  <div class="form-field">
+  <p><%= @modulo1.background_razionale %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Assiomi/Definizioni:</h3>
+  <p><%= @modulo1.assiomi_background %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Domande aperte e problemi(scopi):</h3>
+ <p><%= @modulo1.domande_background %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Ipotesi:</h3>
+  <p><%= @modulo1.ipotesi_background %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Note:</h3>
+ <p> <%= @modulo1.note_background %>
+</p>
+</div>
+<h2>Organizzazione/i di Riferimento</h2>
+<div class="form-field">
+  <h3>Tipologia:</h3>
+  <p><%= @modulo1.tipologia_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Altro:</h3>
+  <p><%= @modulo1.altro_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Campo di studio o applicazione:</h3>
+ <p> <%= @modulo1.campo_studio_applicazione_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Nazione:</h3>
+ <p> <%= @modulo1.nazione_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Regione:</h3>
+ <p> <%= @modulo1.regione_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Provincia:</h3>
+ <p> <%= @modulo1.provincia_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Indirizzo:</h3>
+ <p> <%= @modulo1.indirizzo_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Telefono:</h3>
+ <p> <%= @modulo1.tel_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Email:</h3>
+ <p> <%= @modulo1.email_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Persona di riferimento:</h3>
+ <p> <%= @modulo1.persona_di_riferimento_organizzazione %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Url(indirizzo Internet):</h3>
+ <p> <%= @modulo1.url_organizzazione %>
+</p>
+</div>
+<h2>Team</h2>
+<div class="form-field">
+  <h3>Coordinatore/Relatore:</h3>
+ <p> <%= @modulo1.coordinatore_relatore_team %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Titolare/Rilevatore:</h3>
+ <p> <%= @modulo1.titolare_rilevatore_team %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Elenco nominale operatori tecnici:</h3>
+ <p> <%= @modulo1.elenco_nominale_operatori_tecnici_team %>
+</p>
+</div>
+<div class="form-field">
+  <h3>Creato il:</h3>
+ <p> <%= l(@modulo1.created_at, format:"%e %B %Y %k:%M:%S") %></p>
+</div>
+</div>
+<br/><br/><br/><br/>
+<p class="bottoneverde"><%= link_to 'Modifica', edit_user_modulo1_path(@modulo1.user, @modulo1) %></p><br/><br/><br/>
+<p class="bottonegrigio"><%= link_to 'Indietro', :back %></p><br/><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Proposta', new_user_modulo1_path %> 
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla Pagina delle Segnalazioni', segnalazioni_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

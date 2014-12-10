@@ -1,0 +1,42 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Cerca tra tutti i progetti esistenti", new_modulo2search_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %></p>
+<hr>
+<h3>Lista delle proposte dell'utente: </h3>
+<p><%=current_user.email%></p><br/>
+<%= will_paginate @modulo2s, :previous_label => 'Prec', :next_label => 'Succ' %>
+<table class="table1">
+  <tr>
+   <th>Modulo 1 Associato </th>
+   <th>Proprietario/Autore</th>
+   <th>Creato il:</th>
+   <th></th>
+   <th></th>
+   <th></th>
+    </tr>
+  
+
+  
+<% @modulo2s.each do |modulo2| %>
+      <tr>
+        <td><%= modulo2.titolo_modulo1 %></td>
+        <td><%= modulo2.proprietario_autore %></td>
+        <td><%= l(modulo2.created_at, format: "%e %B %Y %H:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Mostra', [modulo2.user, modulo2],'data-no-turbolink' => true  %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Modifica', edit_user_modulo2_path(modulo2.user, modulo2),'data-no-turbolink' => true  %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Elimina', [modulo2.user, modulo2], :confirm => 'Sei sicuro?', :method => :delete %></td>
+      </tr>
+           <% end %>
+</table>
+<%= will_paginate @modulo2s, :previous_label => 'Prec', :next_label => 'Succ' %>
+<br/><br/><br/><br/>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+
+

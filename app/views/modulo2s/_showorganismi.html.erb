@@ -1,0 +1,25 @@
+<table class="table2">
+<tr>
+<th>Genere e Specie(o Epiteto)</th>
+<th>Famiglia</th>
+<th></th>
+<th>Dettagli</th>
+</tr>
+  
+   <ul>
+  
+    <% for organismi in @modulo2.organismis %>
+         <%if organismi.genere.presence %>
+      <tr>
+      <td><%= organismi.genere %> </td>
+      <td><%= organismi.famiglia %> </td>
+      <td></td>
+      <td><%= link_to 'Mostra', [organismi.modulo2, organismi],:target => "_blank"  %></td>
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>

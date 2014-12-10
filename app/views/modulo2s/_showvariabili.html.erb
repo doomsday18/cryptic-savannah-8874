@@ -1,0 +1,25 @@
+<table class="table2">
+<tr>
+<th>Nome</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+  
+   <ul>
+  
+    <% for variabili in @modulo2.variabilis %>
+         <%if variabili.nome.presence %>
+      <tr>
+      <td><%= variabili.nome %> </td>
+      <td><%=  %> </td>
+      <td><%=  %> </td>
+      <td><%= link_to 'Mostra', [variabili.modulo2, variabili],:target => "_blank"  %></td>
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>

@@ -1,0 +1,44 @@
+<div class="maincontent">
+<h2>Ricerca Avanzata</h2>
+<%= form_for @modulo1search do |f| %>
+  <div class="form-field">
+    <%= f.label :keywords,"Cerca per Titolo" %><br />
+    <%= f.text_field :keywords %>
+  </div>  <div class="form-field">
+    <%= f.label :keywords1,"Cerca per Istutizione di Riferimento" %><br />
+    <%= f.text_field :keywords1%>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords2,"Scrivi la Macrocategoria" %><br>
+    <%= f.text_field :keywords2, {:placeholder =>"Scrivi la macrocategoria"}%>
+    <p>oppure</p><br>
+    <%= f.label :macrocategory_id,"Seleziona la Macrocategoria" %><br>
+    <%= f.collection_select :macrocategory_id, Macrocategorie.order(:nome), :id, :nome, {:prompt => "Seleziona una Macrocategoria"} %>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords3,"Scrivi la Categoria" %><br>
+    <%= f.text_field :keywords3, {:placeholder =>"Scrivi la Categoria"}%>
+    <p>oppure</p><br>
+    <%= f.label :category_id,"Selezione la Categoria" %>
+    <%= f.grouped_collection_select :category_id, Macrocategorie.order(:nome),:categories,:nome, :id,:nome,  {:prompt => "Seleziona una Categoria"}%>
+    </div>
+  <div class="form-field">
+  <%= f.label :keywords4,"Scrivi la Sottocategoria" %><br>
+    <%= f.text_field :keywords4, {:placeholder =>"Scrivi la sottocategoria"}%>
+    <p>oppure</p><br>
+    <%= f.label :microcategory_id,"Seleziona la Sottocategoria" %>
+    <%= f.grouped_collection_select :microcategory_id, Categorie.order(:nome),:microcategories,:nome,:id, :nome,  {:prompt => "Seleziona una sottocategoria"} %><br>
+  </div>
+    <p class="ricercaavanzata"><%= link_to 'Mostra Settori Scientifici Ufficiali LTER', legendacategorie_path ,:target => "_blank"  %></p><br/>
+  
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to "Consulta tutti i Progetti Esistenti", metadati_modulo1_path %><br/></p>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

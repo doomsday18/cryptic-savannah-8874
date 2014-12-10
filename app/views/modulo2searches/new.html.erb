@@ -1,0 +1,39 @@
+<div class="maincontent">
+<h2>Ricerca Avanzata</h2>
+<%= form_for @modulo2search do |f| %>
+  <div class="form-field">
+    <%= f.label :keywords,"Scrivi il titolo del Modulo 1 associato" %><br />
+    <%= f.text_field :keywords %>
+    <p>oppure</p><br>
+    <%= f.label :modulo1_id,"Selezione il Modulo 1" %>
+    <%= f.collection_select :modulo1_id, Modulo1.order(:nome_progetto),:id,:nome_progetto,  {:prompt => "Seleziona il Modulo 1"}%>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords1,"Cerca per nome del compilatore" %><br />
+    <%= f.text_field :keywords1%>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords2,"Cerca per eventuali sottoprogetti" %><br>
+    <%= f.text_field :keywords2%>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords3,"Cerca per Proprietario/Autore" %><br>
+    <%= f.text_field :keywords3%>
+  </div>
+  <div class="form-field">
+    <%= f.label :keywords4,"Cerca per Referente" %><br>
+    <%= f.text_field :keywords4%>
+  </div>
+  <br/>
+  
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to "Consulta tutti i Progetti Esistenti", metadati_modulo2_path %><br/></p>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

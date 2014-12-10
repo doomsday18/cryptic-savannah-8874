@@ -1,0 +1,248 @@
+<div class="form-container">
+<%= nested_form_for([@modulo2.user, @modulo2]) do |f| %>
+  <% if @modulo2.errors.any? %>
+     <% if @modulo2.errors.count > 1 %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@modulo2.errors.count, "") %> Errori nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2><br/>
+          </div>
+     <%else%>
+          <div id="error_explanation">
+          <h2><%= pluralize(@modulo2.errors.count, "") %> Errore nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2></div><br/>
+      <%end%>
+  <% end %>
+
+ <h2>Progetto</h2><br/>
+
+  <div class="form-field">  
+    <%= f.label :sottoprogetti %><br>
+    <%= f.text_area :sottoprogetti %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :difficolta,"Difficolta'" %><br>
+    <%= f.text_area :difficolta %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :suggerimenti %><br>
+    <%= f.text_area :suggerimenti %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :Nome_e_Cognome_del_compilatore %><br>
+    <%= f.text_field :compilatore %>
+  </div>
+
+  <h2>Team</h2>
+  
+    <%= f.fields_for :teams do |team_form| %>
+       <%= render 'team', :f => team_form %>
+    <% end %>
+  
+  <p><%= f.link_to_add "Aggiungi Membro", :teams %></p><br/><br/>
+
+  <h2>Condizioni Iniziali</h2><br/>
+  <div class="form-field">  
+    <%= f.label :condizioni_iniziali %><br>
+    <%= f.text_area :condizioni_iniziali %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :processi_in_atto,"Processi rilevanti in atto" %><br>
+    <%= f.text_area :processi_in_atto %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :storia,"Storia e gestione pregressa del sito" %><br>
+    <%= f.text_area :storia %>
+  </div>
+
+<h2>Variabili</h2><br/>
+  
+<%= f.fields_for :variabilis do |variabili_form| %>
+       <%= render 'variabili', :f => variabili_form %>
+    <% end %>
+  <br/>
+  <p><%= f.link_to_add "Aggiungi Variabile", :variabilis %></p><br/><br/>
+  
+
+<h2>Organismi oggetto dell'indagine</h2><br/>
+  
+     <%= f.fields_for :organismis do |organismi_form| %>
+       <%= render 'organismi', :f => organismi_form %>
+    <% end %>
+  <p><%= f.link_to_add "Aggiungi Organismo", :organismis %></p><br/><br/>  
+
+
+  <div class="form-field">  
+    <%= f.label :organismi_numero,"Numero" %><br>
+    <%= f.text_field :organismi_numero %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :organismi_tipologia,"Tipologia" %><br>
+    <%= f.text_field :organismi_tipologia %>
+  </div><br/>
+  
+<h2>Sistemi biologici/ecologici e processi oggetto d'indagine</h2><br/>
+     <%= f.fields_for :sistemi_biologicis do |sistemi_biologici_form| %>
+       <%= render 'sistemibiologici', :f => sistemi_biologici_form %>
+    <% end %>
+  <p><%= f.link_to_add "Aggiungi Sistema Biologico", :sistemi_biologicis %></p><br/><br/>  
+
+  
+<h2>Disegno sperimentale</h2><br/>
+  <div class="form-field">  
+    <%= f.text_area :disegno_sperimentale %>
+  </div>
+
+<h2>Metodo/i di campionamento</h2><br/>
+  <div class="form-field">  
+    <%= f.label :metodo_campionamento %><br>
+    <%= f.text_area :metodo_campionamento %>
+  </div>
+  <div class="form-field">  
+    <%= f.label :descrizione_campioni %><br>
+    <%= f.text_area :descrizione_campioni %>
+  </div>
+
+<h2>Variabili Ambientali</h2><br/>
+  <div class="form-field">  
+    <%= f.label :variabili_ambientali %><br>
+    <%= f.text_area :variabili_ambientali %>
+  </div>
+
+<h2>Altre Variabili</h2><br/>
+  <div class="form-field">  
+    <%= f.label :altre_variabili %><br>
+    <%= f.text_area :altre_variabili %>
+  </div>
+
+<h2>Riferimenti spaziali</h2><br/>
+  <div class="form-field"> <br/>
+    <%= f.text_area :descrizione_riferimenti_spaziali %>
+    <h3>Punti</h3><br/>
+    <%= f.fields_for :riferimenti_spazialis do |riferimenti_spaziali_form| %>
+         <%= render 'riferimentispaziali', :f => riferimenti_spaziali_form %>
+    <% end %>
+    <p><%= f.link_to_add "Aggiungi Riferimento Spaziale", :riferimenti_spazialis %></p><br/><br/>  
+  </div>
+  
+  <div class="form-field">  
+    <h3> Transetti </h3><br/>
+    <%= f.fields_for :transettis do |transetti_form| %>
+         <%= render 'transetti', :f => transetti_form %>
+    <% end %>
+    <p><%= f.link_to_add "Aggiungi Transetto", :transettis %></p><br/><br/>  
+
+  </div>
+<div class="form-field">  
+  <h3> Aree  </h3><br/>
+  <%= f.fields_for :arees do |aree_form| %>
+         <%= render 'aree', :f => aree_form %>
+    <% end %>
+    <p><%= f.link_to_add "Aggiungi Area", :arees %></p><br/><br/>    
+</div>
+<div class="form-field">  
+  <h3> Raster </h3><br/>
+  <%= f.fields_for :rasters do |raster_form| %>
+         <%= render 'rasters', :f => raster_form %>
+    <% end %>
+    <p><%= f.link_to_add "Aggiungi Raster", :rasters %></p><br/><br/>    
+</div>
+<div class="form-field">  
+  <h3> Plots </h3><br/>
+  <%= f.fields_for :plots do |plot_form| %>
+         <%= render 'plots', :f => plot_form %>
+    <% end %>
+    <p><%= f.link_to_add "Aggiungi Plot", :plots %></p><br/><br/>  
+</div>
+<div class="form-field">  
+  <h3> Materializzazione </h3><br/>
+  <%= f.text_area :materializzazione %> 
+</div>
+<div class="form-field">  
+  <h3> Altro  </h3><br/>
+  <%= f.text_area :altro %> 
+</div>
+<h2>Descrizione del percorso</h2><br/>
+<div class="form-field">  
+  <%= f.text_area :descrizione_percorso %>
+</div>
+<h2>Numero ingressi nella riserva</h2><br/>
+<div class="form-field">  
+  <%= f.text_field :numero_di_ingressi %> 
+</div>
+<h2>Punto di ingresso nella riserva</h2><br/>
+<div class="form-field">  
+  <%= f.text_area :punto_di_ingresso %> 
+</div>
+<h2>Riferimenti temporali</h2><br/>
+<div class="form-field">  
+    <h3> Data di inizio campionamento  </h3><br/>
+    <%= f.date_select :data_inizio, :order => [:month, :year], :discard_days => true %>
+</div>
+<div class="form-field">  
+    <h3> Data di fine campionamento </h3><br/>
+    <%= f.date_select :data_fine, :order => [:month, :year], :discard_days => true %>
+</div>
+<div class="form-field">  
+    <h3> Copertura temporale continua o discontinua</h3><br/>
+    <%= f.text_area :copertura_temporale %>
+</div>
+<h2>Abstract</h2><br/>
+<div class="form-field">  
+    <%= f.text_area :abstract %>
+</div>
+<h2>Documentazione</h2><br/>
+<div class="form-field">  
+    <h3> Citazioni bibliografiche </h3><br/>
+    <%= f.text_area :citazioni_bibliografiche %> 
+</div>
+<div class="form-field">  
+    <h3> Citazioni di abstract </h3><br/>
+    <%= f.text_area :citazioni_abstract %>
+</div>
+<div class="form-field">  
+    <h3> Documenti e Files  </h3><br/>
+    <%= f.text_area :documenti_files %>
+</div>
+<div class="form-field">  
+    <h3> Localizzazione dei documenti </h3><br/>
+    <%= f.text_area :localizzazione_documenti %>
+</div>
+<div class="form-field">  
+    <h3> Referente/i </h3><br/>
+    <%= f.text_field :referente %>
+</div>
+<h2>Proprieta'</h2><br/>
+<div class="form-field">  
+    <h3>Proprietario/Autore: </h3><br/>
+    <%= f.text_area :proprietario_autore %>  
+</div>
+<h2>Materiale consegnato</h2><br/>
+<div class="form-field">  
+    <%= f.text_area :materiale_consegnato %>
+</div>
+<div class="form-field">  
+    <h3>Bibliografia di riferimento Modulo 1 e 2</h3><br/>
+    <%= f.text_area :bibliografia_moduli1e2 %>  </p>
+</div><br/>
+<h2> Modulo 1 associato </h2><br/>
+<div class="form-field">  
+    <%= f.select(:modulo1_id,current_user.modulo1s.all.map{|p|[p.nome_progetto,p.id]}, 
+                                                       :prompt => "Seleziona il Modulo1 associato") %>
+</div>
+</div><br/><br/>
+<div class="autorizzazione">
+    <%= render 'autorizzazione' %>
+    
+</div><br/>
+<p>
+<%= f.check_box :terms_of_service, :required => "true" %>
+<%= f.label :Ho_letto_e_approvo_i_termini_di_servizio %>  
+</p><br/>
+<div class="actions">
+    <%= f.submit "Invia"%>
+</div><br/>
+
+<p2>* Campo obbligatorio</p2><br/>
+<% end %> 

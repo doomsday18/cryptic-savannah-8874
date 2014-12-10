@@ -1,0 +1,24 @@
+<table class="table3" align="center">
+<tr>
+<th>Transetti</th>
+<th>Localizzazione</th>
+<th>Ev. Descrizione</th>
+</tr>
+  
+   <ul>
+  
+    <% for transetti in @modulo2.transettis %>
+         <%if transetti.nome.presence %>
+      <tr>
+      <td><%= transetti.nome %> </td>
+      <td><%= transetti.localizzazione %> </td>
+      <td><%= transetti.ev_descrizione %> </td>
+    
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>

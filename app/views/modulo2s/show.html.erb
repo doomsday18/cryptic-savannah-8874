@@ -1,0 +1,208 @@
+<div class="maincontent">
+
+<div class="form-container">
+
+<h2> Progetto Modulo1 Associato </h2><br/>
+<div class="form-field">  
+    <p><%= @modulo2.titolo_modulo1 %>  </p>
+</div>
+</div><br/>
+<div class="form-container">
+<h2>Progetto</h2><br/>
+  <div class="form-field">  
+    <h3>Sottoprogetti</h3><br/>
+    <p><%= @modulo2.sottoprogetti %>  </p>
+  </div><br/>
+  <div class="form-field">  
+    <h3>Difficolta'</h3><br/>
+    <p><%= @modulo2.difficolta %>  </p>
+  </div>
+  <div class="form-field">  
+    <h3>Suggerimenti</h3><br/>
+    <p><%= @modulo2.suggerimenti %></p>
+  </div>
+  <div class="form-field">  
+    <h3>Note</h3><br/>
+    <p><%= @modulo2.note %>  </p>
+
+  </div>
+  <div class="form-field">  
+    <h3>Nome e Cognome del Compilatore</h3><br/>
+    <p><%= @modulo2.compilatore %>  </p>
+    
+  </div>
+
+<h2>Team</h2><br/>
+  <div class="form-field">  
+    <%= render 'showteam'%>
+  </div>
+
+<h2>Condizioni Iniziali</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.condizioni_iniziali %> </p>
+  </div>
+  <div class="form-field">  
+    <h3>Processi in atto </h3><br/>
+    <p><%= @modulo2.processi_in_atto %>  </p>
+  </div>
+  <div class="form-field">  
+    <h3>Storia </h3><br/>
+    <p><%= @modulo2.storia %> </p>
+  </div>
+  
+<h2>Variabili </h2><br/>
+  <div class="form-field">  
+    <%= render 'showvariabili'%>
+  </div>
+  
+<h2>Organismi oggetto dell'indagine</h2><br/>
+  <div class="form-field">  
+    <%= render 'showorganismi'%>
+  </div>
+  <div class="form-field">  
+    <h3>Numero </h3><br/>
+    <p><%= @modulo2.organismi_numero %></p>
+  </div>
+  <div class="form-field">  
+    <h3>Tipologia </h3><br/>
+    <p><%= @modulo2.organismi_tipologia %>  </p>
+  </div>
+  
+<h2>Sistemi biologici/ecologici e processi oggetto d'indagine</h2><br/>
+  <div class="form-field">  
+    <%= render 'showsistemibiologici'%>
+  </div>
+<h2>Disegno sperimentale</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.disegno_sperimentale %>  </p>
+  </div>
+<h2>Metodo/i di campionamento</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.metodo_campionamento %>  </p>
+  </div>
+  <div class="form-field">  
+    <h3>Descrizione campioni</h3><br/>
+    <p><%= @modulo2.descrizione_campioni %></p>
+  </div>
+<h2>Variabili Ambientali</h2><br/>
+  <div class="form-field">  
+    <p> <%= @modulo2.variabili_ambientali %>  </p>
+  </div>
+<h2>Altre Variabili</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.altre_variabili %> </p>
+  </div>
+<h2>Riferimenti spaziali</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.descrizione_riferimenti_spaziali %> </p>
+  </div>
+  <h3> Punti </h3><br/>
+  <div class="form-field">
+    <%= render 'showriferimentispaziali'%>
+  </div><br/>
+    <h3> Transetti </h3><br/>
+  <div class="form-field">
+    <%= render 'showtransetti'%>
+  </div>
+    <h3> Aree</h3><br/>
+  <div class="form-field">    
+    <%= render 'showaree'%>
+  </div>
+    <h3> Raster</h3><br/>
+  <div class="form-field">  
+    <%= render 'showrasters'%>
+  </div><br/>
+    <h3> Plots  </h3><br/>
+  <div class="form-field">  
+    <%= render 'showplots'%>
+  </div>
+  <div class="form-field">  
+    <h3> Materializzazione  </h3><br/>
+    <p><%= @modulo2.materializzazione %>  </p>
+  </div>
+
+  <div class="form-field">  
+    <h3> Altro  </h3><br/>
+    <p><%= @modulo2.altro %></p>
+  </div>
+<h2>Descrizione del percorso</h2><br/>
+  <div class="form-field">  
+    <p><%= @modulo2.descrizione_percorso %>  </p>
+  </div>
+<h2>Numero ingressi nella riserva</h2><br/>
+  <div class="form-field">  
+    <p> <%= @modulo2.numero_di_ingressi %>  </p>
+  </div>
+<h2>Punto di ingresso nella riserva</h2><br/>
+<div class="form-field">  
+   <p> <%= @modulo2.punto_di_ingresso %>  </p>
+  </div>
+<h2>Riferimenti temporali</h2><br/>
+<div class="form-field">  
+  <h3> Data di inizio campionamento  </h3><br/>
+  <p>  <%= l(@modulo2.data_inizio, format: "%B %Y") %>  </p>
+</div>
+<div class="form-field">  
+  <h3> Data di fine campionamento</h3><br/>
+  <p> <%= l(@modulo2.data_fine, format: "%B %Y") %> </p>
+</div>
+<div class="form-field">  
+  <h3> Copertura temporale continua o discontinua</h3><br/>
+  <p> <%= @modulo2.copertura_temporale %> </p>
+</div>
+<h2>Abstract</h2><br/>
+<div class="form-field">  
+  <p align="justify"> <%= @modulo2.abstract %> </p>
+</div>
+<h2>Documentazione</h2><br/>
+<div class="form-field">  
+    <h3> Citazioni bibliografiche </h3><br/>
+    <p align="justify"><%= @modulo2.citazioni_bibliografiche %></p>
+</div>
+<div class="form-field">  
+    <h3> Citazioni di abstract </h3><br/>
+    <p align="justify"><%= @modulo2.citazioni_abstract %> </p>
+</div>
+<div class="form-field">  
+    <h3> Documenti e Files  </h3><br/>
+    <p> <%= @modulo2.documenti_files %></p>
+</div>
+<div class="form-field">  
+    <h3> Localizzazione dei documenti</h3><br/>
+    <p> <%= @modulo2.localizzazione_documenti %>  </p>
+</div>
+<div class="form-field">  
+    <h3> Referente/i </h3><br/>
+    <p> <%= @modulo2.referente %> </p>
+</div>
+<h2>Proprieta'</h2><br/>
+<div class="form-field">  
+    <h3>Proprietario/Autore</h3><br/>
+    <p> <%= @modulo2.proprietario_autore %>  </p>
+</div>
+<h2>Materiale consegnato</h2><br/>
+<div class="form-field">  
+    <p><%= @modulo2.materiale_consegnato %> </p>
+</div>
+<div class="form-field">  
+    <h3>Bibliografia di riferimento Modulo 1 e 2</h3><br/>
+    <p align="justify"><%= @modulo2.bibliografia_moduli1e2 %>  </p>
+</div><br/>
+
+  
+</div>
+
+<br/><br/><br/><br/>
+  <p class="bottoneverde"><%= link_to 'Modifica', edit_user_modulo2_path(@modulo2.user, @modulo2) %></p><br/><br/><br/>
+  <p class="bottonegrigio"><%= link_to 'Indietro', :back %></p><br/><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Proposta', new_user_modulo2_path %> 
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla Pagina delle Segnalazioni', segnalazioni_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+
+
+</div>

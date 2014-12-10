@@ -1,0 +1,15 @@
+<div class="maincontent">
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p>
+<hr><br>
+<p class="pulsanteblu"><%= link_to "Mostra proposte effettuate da questo utente", [@modulo1.user, @modulo1] %></p>
+<hr>
+
+<%= render 'form' %>
+<br/><br/>
+<p class="pulsanteverde"><%= link_to 'Proponi un nuovo Progetto', nuovoprogetto_path %></p><br/>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

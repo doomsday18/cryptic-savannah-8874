@@ -1,0 +1,20 @@
+<table class="table2">
+<tr>
+ <th>Tipologia del/i sistema/i</th>
+ <th>Sistema di riferimento</th>
+ <th>Componenti oggetto di studio</th>
+ <th>Dettagli</th>
+ </tr>
+ <ul>
+  <% for sistemi_biologici in @modulo2.sistemi_biologicis %>
+         <%if sistemi_biologici.tipologia.presence %>
+<tr>
+<td><%= sistemi_biologici.tipologia %></td>
+<td><%= sistemi_biologici.riferimento %></td>
+<td><%= sistemi_biologici.componenti %></td>
+<td><%= link_to 'Mostra', [sistemi_biologici.modulo2, sistemi_biologici],:target => "_blank"  %></td>
+<%end%>
+</tr>
+<%end%>
+</ul>
+</table>

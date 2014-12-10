@@ -1,0 +1,25 @@
+<table class="table2">
+<tr>
+<th>Nome</th>
+<th>Cognome</th>
+<th>Ruolo</th>
+<th>Dettagli</th>
+</tr>
+  
+   <ul>
+  
+    <% for team in @modulo2.teams %>
+         <%if team.nome.presence %>
+      <tr>
+      <td><%= team.nome %> </td>
+      <td><%= team.cognome %> </td>
+      <td><%= team.ruolo %> </td>
+      <td><%= link_to 'Mostra', [team.modulo2, team],:target => "_blank"  %></td>
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>

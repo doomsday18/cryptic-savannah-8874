@@ -1,0 +1,26 @@
+<div class="form-field">   
+<div class="items">  
+    <%= f.label :tipologia,"Tipologia del/i sistema/i" %>
+    <%= f.text_area :tipologia %>
+
+    <%= f.label :riferimento,"Sistema di riferimento" %>
+    <%= f.text_area :riferimento %>
+
+    <%= f.label :componenti,"Componenti oggetto di studio" %>
+    <%= f.text_area :componenti %>
+
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+
+    <%= f.label :referenze,"Referenze di identificazione" %>
+    <%= f.text_area :referenze %>
+
+    <%= f.label :descrizione %>
+    <%= f.text_area :descrizione %><br/><br/>
+
+    <%= f.hidden_field :id %> 
+ 
+ <%= f.link_to_remove "Rimuovi Sistema Biologico" %><br/><br/>
+
+</div>
+</div>

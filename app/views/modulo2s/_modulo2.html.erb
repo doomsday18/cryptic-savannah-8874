@@ -1,0 +1,7 @@
+<tr>
+    <td><%= modulo2.titolo_modulo1 %></td>
+    <td><%= modulo2.proprietario_autore%></td>
+    <td><%= l(modulo2.created_at, format: "%e %B %Y %H:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td><%= link_to 'Mostra', [modulo2.user, modulo2],:target => "_blank" %>&nbsp;&nbsp;</td>
+</tr>

@@ -1,0 +1,25 @@
+var categories = new Array();
+<% for categorie in @categories -%>
+  categories.push(new Array(<%= categorie.macrocategorie_id %>, '<%=h categorie.nome %>', <%= categorie.id %>));
+<% end -%>
+
+function macrocategorieSelected() {
+  macrocategorie_id = $('macrocategorie_id').getValue();
+  options = $('categorie_id').options;
+  options.length = 1;
+  states.each(function(categorie) {
+    if (categorie[0] == macrocategorie_id) {
+      options[options.length] = new Option(categorie[1], categorie[2]);
+    }
+  });
+  if (options.length == 1) {
+    $('categorie_field').hide();
+  } else {
+    $('categorie_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  macrocategorieSelected();
+  $('macrocategorie_id').observe('change', macrocategorieSelected);
+});

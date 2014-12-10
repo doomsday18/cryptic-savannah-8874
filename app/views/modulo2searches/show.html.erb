@@ -1,0 +1,36 @@
+<div class="maincontent">
+<h1>Risultati della ricerca</h1>
+<% if @modulo2search.modulo2s.blank? %>
+  <h2>Nessun Risultato Trovato</h2><br/>
+  <p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_modulo2search_path %></p>
+  <hr>
+  <p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+  <hr>
+  <p class="pulsanteblu"><%= link_to "Consulta i Progetti Esistenti", metadati_modulo2_path %><br/></p>
+  <hr><br/><br/><br/><br/><br/>
+  <%= render 'layouts/footer' %>
+<%else%>
+<p>Corrispondenze trovate: <%= @modulo2search.modulo2s.count %> </p><br/>
+    <table class="table1">
+  <tr>
+   <th>Modulo 1 Associato</th>
+   <th>Proprietario/Autore</th>
+   <th>Creato il:</th>
+   <th></th>
+   </tr>
+  
+   <%= render @modulo2search.modulo2s %>
+    </table>
+    
+<br/>
+<hr>
+<p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_modulo2search_path %></p>
+  <hr><br/>
+  <hr>
+  <p class="pulsanteverde"><%= link_to "Consulta i Progetti Esistenti", metadati_modulo2_path %></p>
+  <p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+  <hr>
+ <%end%>
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+ </div>

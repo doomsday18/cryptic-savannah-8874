@@ -1,0 +1,24 @@
+<table class="table3" align="center">
+<tr>
+<th>Plots</th>
+<th>Localizzazione</th>
+<th>Ev. Descrizione</th>
+</tr>
+  
+   <ul>
+  
+    <% for plot in @modulo2.plots %>
+         <%if plot.nome.presence %>
+      <tr>
+      <td><%= plot.nome %> </td>
+      <td><%= plot.localizzazione %> </td>
+      <td><%= plot.ev_descrizione %> </td>
+    
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>

@@ -1,0 +1,24 @@
+<table class="table3" align="center">
+<tr>
+<th>Aree</th>
+<th>Localizzazione</th>
+<th>Ev. Descrizione</th>
+</tr>
+  
+   <ul>
+  
+    <% for aree in @modulo2.arees %>
+         <%if aree.nome.presence %>
+      <tr>
+      <td><%= aree.nome %> </td>
+      <td><%= aree.localizzazione %> </td>
+      <td><%= aree.ev_descrizione %> </td>
+    
+      
+         <%end%>
+    </tr>
+    
+    <% end %>
+  </ul>
+
+  </table>
