@@ -74,7 +74,7 @@ def update
       @plot = Plot.find(params[:id])
     end
 
-end
 
-end
+
+
 
