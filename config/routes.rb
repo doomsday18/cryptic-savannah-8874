@@ -31,7 +31,7 @@ end
 #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root to:'static_pages#home'
-  match '/pagina_admin', to: 'static_pages#admin_page', via: 'get'
+  match '/tettoroberto18', to: 'static_pages#admin_page', via: 'get'
   match '/user_pages',   to: 'static_pages#user_pages',   via: 'get' 
   match '/nuovoprogetto',   to: 'static_pages#nuovoprogetto',   via: 'get' 
   match '/segnalazioni', to: 'static_pages#segnalazioni', via: 'get'
