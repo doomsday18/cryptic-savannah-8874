@@ -28,7 +28,7 @@ end
 
  
 
-mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+#mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root to:'static_pages#home'
   match '/pagina_admin', to: 'static_pages#admin_page', via: 'get'
