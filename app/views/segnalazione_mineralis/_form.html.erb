@@ -1,0 +1,33 @@
+<h2>Invia nuova segnalazione:<br/> Minerali, Formazioni geologiche particolari o ritrovamenti fossili</h2><br/>
+  <p align="justify">In tale sezione vengono dichiarate formazioni su minerali, formazioni e processi geologici particolari o ritrovamenti fossili in situ, in funzione del personale grado di conoscenza. </p><br/><br/>
+<div class="form-container">  
+<%= form_for([@segnalazione_minerali.user, @segnalazione_minerali]) do |f| %>
+  <% if @segnalazione_minerali.errors.any? %>
+      <% if @segnalazione_minerali.errors.count > 1 %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_minerali.errors.count, "") %> Errori nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2></div><br/>
+      <%else%>
+       <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_minerali.errors.count, "") %> Errore nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2> </div> <br/>      
+      <%end%>
+    
+  <% end %>
+  
+ <div class="form-field"> 
+    <%= f.label :titolo,"Titolo*"%><br />
+    <%= f.text_field :titolo %>
+    </div>
+
+    
+ 
+  <div class="form-field"> 
+    <%= f.label :Segnalazione,"Segnalazione*" %><br/>
+   <%= f.text_area :note, placeholder: "Scrivere la segnalazione in questo spazio ed inviarla..."%><br/>
+  </div>
+  </div><br/>
+  <div class="actions">
+         <%= f.submit "Invia"%>
+  </div><br/>
+         <p2>* Campo obbligatorio</p2><br/>
+<% end %>
+

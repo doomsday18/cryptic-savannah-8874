@@ -1,0 +1,51 @@
+<div class="maincontent">
+<h2>Modifica Dati Personali</h2>
+
+<div class="form-container">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <div style="color: red;">
+  <%= devise_error_messages! %><br/>
+   </div>
+  <div class="form-field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %>
+  </div>
+
+  
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <h2>In attesa di conferma per: <%= resource.unconfirmed_email %></h2>
+  <% end %>
+
+  <div class="form-field">
+  <%= f.label :password %> <i>(lasciare vuoto se non si desidera modificare)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %>
+  </div>
+
+  <div class="form-field">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="form-field">
+  <%= f.label :current_password %> <i>(abbiamo bisogno della password corrente per effettuare la modifica)</i><br />
+  <%= f.password_field :current_password %>
+  </div>
+  
+  <div class="actions">
+  <%= f.submit "Aggiorna" %>
+  </div>
+<% end %>
+<br/>
+<p>oppure</p>
+<br/><br/>
+
+<div class="actions">
+<%= button_to "Elimina Account", registration_path(resource_name), :data => { :confirm => "Sei sicuro di voler cancellare l'account?" }, :method => :delete %></div>
+</div>
+<br/><br/><br/>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

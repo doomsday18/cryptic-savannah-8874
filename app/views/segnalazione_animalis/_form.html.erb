@@ -1,0 +1,50 @@
+<h2>Invia nuova segnalazione:<br/>Zoologica (animale)</h2><br/>
+<p align="justify">In tale sezione vengono dichiarate le specie avvistate o riconosciute direttamente in situ, in funzione del personale grado di conoscenza.</p><br/><br/>
+<div class="form-container">
+<%= form_for([@segnalazione_animali.user, @segnalazione_animali]) do |f| %>
+  <% if @segnalazione_animali.errors.any? %>
+      <% if @segnalazione_animali.errors.count > 1 %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_animali.errors.count, "") %> Errori nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2></div><br/>
+      <%else%>
+       <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_animali.errors.count, "") %> Errore nella compilazione della segnalazione:<br/><br/> i campi * non possono essere vuoti</h2> </div> <br/>      
+      <%end%>
+    
+  <% end %>
+
+  <div class="form-field"> 
+    <%= f.label :titolo,"Titolo*"%><br />
+    <%= f.text_field :Titolo %>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Classe %>
+    <%= f.text_field :classe %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Epiteto_o_nome_volgare %>
+    <%= f.text_field :epiteto %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Genere %>
+    <%= f.text_field :genere %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Specie %>
+    <%= f.text_field :specie %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Autore %>
+    <%= f.text_field :autore %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Foto %>
+    <%= f.check_box :foto %><br>
+  </div>
+  </div>
+  <br/>
+ <div class="actions">
+  <%= f.submit "Invia"%>
+  </div><br/>
+  <p2>* Campo obbligatorio</p2><br/>
+<% end %>

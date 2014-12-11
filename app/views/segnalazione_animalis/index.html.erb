@@ -1,0 +1,42 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Cerca tra tutte le segnalazioni esistenti", new_animalisearch_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %><br/></p>
+<hr>
+<h3>Lista delle segnalazioni dell'utente:</h3>
+<p><%=current_user.email%></p><br/>
+<%= will_paginate @segnalazione_animalis, :previous_label => 'Prec', :next_label => 'Succ' %>
+<table class="table1">
+  <tr>
+    
+    <th>Titolo:</th><br>
+    <th>Classe:</th>
+    <th>Creato il:</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    
+  </tr>
+    <% @segnalazione_animalis.each do |segnalazione_animali| %>
+      <tr>
+        <td><%= segnalazione_animali.Titolo  %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= segnalazione_animali.classe %>
+        <td><%= l(segnalazione_animali.created_at, format:"%e %B %Y %k:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        
+        <td><%= link_to 'Mostra', [segnalazione_animali.user, segnalazione_animali] ,'data-no-turbolink' => true %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Modifica', edit_user_segnalazione_animali_path(segnalazione_animali.user, segnalazione_animali),'data-no-turbolink' => true %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Elimina', [segnalazione_animali.user, segnalazione_animali], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  
+</table>
+<%= will_paginate @segnalazione_animalis, :previous_label => 'Prec', :next_label => 'Succ' %>
+<br/><br/><br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione in questo campo', new_user_segnalazione_animali_path ,'data-no-turbolink' => true %>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

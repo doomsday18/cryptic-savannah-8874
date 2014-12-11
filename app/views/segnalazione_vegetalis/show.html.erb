@@ -1,0 +1,58 @@
+<div class="maincontent">
+<div class="form-container">
+
+
+<div class="form-field">
+  <h3>Titolo:</h3><br/>
+  <p><%= @segnalazione_vegetali.Titolo %></p>
+</div>
+
+<h2>Osservazioni macroscopiche<br/> 
+(direttamente in situ)</h2><br/>
+
+
+<div class="form-field">
+  <h3>Famiglia:</h3><br/>
+  <p><%= @segnalazione_vegetali.famiglia_macro %></p>
+</div>
+<div class="form-field">
+  <h3>Genere:</h3><br/>
+  <p><%= @segnalazione_vegetali.genere_macro %></p>
+</div>
+<div class="form-field">
+  <h3>Foto:</h3><br/>
+  <p><%= @segnalazione_vegetali.foto %></p>
+</div>
+<h2>Osservazioni microscopiche (in laboratorio)</h2><br>
+<div class="form-field">
+  <h3>Famiglia:</h3><br/>
+  <p><%= @segnalazione_vegetali.famiglia_micro %></p>
+</div>
+<div class="form-field">
+  <h3>Genere:</h3><br/>
+  <p><%= @segnalazione_vegetali.genere_micro %></p>
+</div>
+<div class="form-field">
+  <h3>Foto:</h3><br/>
+  <p><%= @segnalazione_vegetali.microfoto %></p>
+</div>
+<div class="form-field">
+  <h3>Campione:</h3><br/>
+  <p><%= @segnalazione_vegetali.campione %></p>
+</div>
+<div class="form-field">
+  <h3>User:</h3><br/>
+  <p><%= @segnalazione_vegetali.user.email %></p>
+</div>
+</div>
+<br/><br/><br/><br/>
+<p class="bottonegrigio"><%= link_to 'Indietro', :back %></p><br/><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione', new_user_segnalazione_vegetali_path %>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla Pagina delle Segnalazioni', segnalazioni_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

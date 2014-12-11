@@ -1,0 +1,37 @@
+<div class="maincontent">
+<div class="form-container">
+
+<div class="form-field">  
+  <h3>Titolo:</h3><br/>
+  <p><%= @segnalazione_minerali.titolo %>  </p>
+  </div>
+    
+
+<div class="form-field">  
+ <h3>Segnalazione:</h3><br/><br/>
+ <p><textarea readonly>
+  <%= @segnalazione_minerali.note %>
+</textarea></p>
+</div>
+
+<div class="form-field">  
+  <h3>User:</h3>
+  <p><%= @segnalazione_minerali.user.email %>
+</p></div>
+</div><br/>
+
+<p class="bottoneverde"><%= link_to 'Modifica', edit_user_segnalazione_minerali_path(@segnalazione_minerali.user, @segnalazione_minerali) %>
+</p><br/><br/><br/>
+<p class="bottonegrigio"><%= link_to 'Indietro', :back %></p><br/><br/><br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione', new_user_segnalazione_minerali_path %> 
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla Pagina delle Segnalazioni', segnalazioni_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+
+
+
+ 

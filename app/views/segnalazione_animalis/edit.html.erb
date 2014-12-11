@@ -1,0 +1,12 @@
+<div class="maincontent">
+<h1>Modifica la segnalazione</h1>
+
+<%= render 'form' %>
+
+<br/><br/>
+<p class="bottoneverde"><%= link_to 'Mostra', [@segnalazione_animali.user, @segnalazione_animali] %></p><br/><br/><br/>
+<p class="bottonegrigio"><%= link_to 'Indietro', segnalazioni_path(@segnalazione_animali.user) %></p><br/><br/><br/>
+<hr>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

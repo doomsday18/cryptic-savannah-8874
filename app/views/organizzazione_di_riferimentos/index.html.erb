@@ -1,0 +1,47 @@
+<h1>Listing organizzazione_di_riferimentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nazione</th>
+      <th>Regione</th>
+      <th>Provincia</th>
+      <th>Indirizzo</th>
+      <th>Referente</th>
+      <th>Email</th>
+      <th>Tel</th>
+      <th>Cell</th>
+      <th>Url</th>
+      <th>Modulo2</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizzazione_di_riferimentos.each do |organizzazione_di_riferimento| %>
+      <tr>
+        <td><%= organizzazione_di_riferimento.nome %></td>
+        <td><%= organizzazione_di_riferimento.nazione %></td>
+        <td><%= organizzazione_di_riferimento.regione %></td>
+        <td><%= organizzazione_di_riferimento.provincia %></td>
+        <td><%= organizzazione_di_riferimento.indirizzo %></td>
+        <td><%= organizzazione_di_riferimento.referente %></td>
+        <td><%= organizzazione_di_riferimento.email %></td>
+        <td><%= organizzazione_di_riferimento.tel %></td>
+        <td><%= organizzazione_di_riferimento.cell %></td>
+        <td><%= organizzazione_di_riferimento.url %></td>
+        <td><%= organizzazione_di_riferimento.modulo2 %></td>
+        <td><%= link_to 'Show', organizzazione_di_riferimento %></td>
+        <td><%= link_to 'Edit', edit_organizzazione_di_riferimento_path(organizzazione_di_riferimento) %></td>
+        <td><%= link_to 'Destroy', organizzazione_di_riferimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organizzazione di riferimento', new_organizzazione_di_riferimento_path %>

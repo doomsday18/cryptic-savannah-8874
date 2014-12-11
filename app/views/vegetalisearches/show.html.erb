@@ -1,0 +1,46 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_vegetalisearch_path %></p>
+<hr>
+<h1>Risultati della ricerca</h1>
+<% if @vegetalisearch.segnalazione_vegetalis.blank? %>
+  <h2>Nessun Risultato Trovato</h2><br/>
+  <hr>
+  <p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_vegetalisearch_path %></p>
+  <hr>
+  <p class="pulsanteverde"><%= link_to "Consulta i Progetti Esistenti", metadati_vegetale_path %><br/></p>
+  <p class="pulsanteverde"><%= link_to "Effettua una nuova segnalazione", segnalazioni_path %><br/></p><br/>
+  <hr>
+  <p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+  <hr>
+  <br/><br/><br/><br/><br/>
+  <%= render 'layouts/footer' %>
+<%else%>
+<p>Corrispondenze trovate: <%= @vegetalisearch.segnalazione_vegetalis.count %> </p><br/>
+        <table class="table1">
+        <tr>
+        <th>Titolo</th><br>
+        <th>Famiglia-Oss. Macroscopiche</th>
+        <th>Famiglia-Oss. Microscopiche</th>
+        <th>Creato il:</th>
+        <th></th>
+        
+     
+        </tr>
+   <%= render @vegetalisearch.segnalazione_vegetalis %>
+    </table>
+    
+<br/>
+<hr>
+<p class="ricercaavanzata"><%= link_to "Effettua una nuova ricerca ", new_vegetalisearch_path %></p>
+<br/>
+<hr>
+<p class="pulsanteverde"><%= link_to "Consulta i Progetti Esistenti", metadati_vegetale_path %></p>
+<p class="pulsanteverde"><%= link_to "Effettua una nuova segnalazione", segnalazioni_path %><br/></p><br/>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+  <%end%>
+<br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+ </div>

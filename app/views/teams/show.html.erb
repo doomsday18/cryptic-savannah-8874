@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div class ="container">
+<table class="table3", align="center">
+<tr>
+<th>Nome</th>
+<th>Cognome</th>
+<th>Ruolo</th>
+<th>Istituzione</th>
+<th>Indirizzo</th>
+<th>Email</th>
+<th>Tel</th>
+<th>Cell</th>
+<th></th>
+
+</tr>
+
+<tr>
+<td><%= @team.nome %> </td>
+<td><%= @team.cognome %></td>
+<td><%= @team.ruolo %></td>
+<td><%= @team.istituzione %></td>
+<td><%= @team.indirizzo %></td>
+<td><%= @team.email %></td>
+<td><%= @team.tel %></td>
+<td><%= @team.cell %></td>
+<td></td>
+
+</tr>
+  </table>
+
+</div>
+<div class="maincontent">
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>
+
+
+

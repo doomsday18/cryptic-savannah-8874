@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div style="padding-left:210px">
+<div class ="container">
+<div class="form-container">
+<h2>Variabili</h2><br/>
+<div class="form-field"> 
+    <div class="form-field1">    
+    <%= label :nome,"Variabile"%>
+    <%= @variabili.nome %><br/><br/>
+    <%= label :variabile_misurata,"Variabile misurata" %>
+    <%= @variabili.variabile_misurata %> <br/><br/>
+    <%= label :conteggio,"Conteggio" %>
+    <%= @variabili.conteggio %><br/><br/>
+    <%= label :stima,"Stima/Valutazione" %>
+    <%= @variabili.stima %><br/><br/>
+    <%= label :variabile_derivata,"Variabile Derivata" %>
+    <%= @variabili.variabile_derivata %><br/><br/>
+    <%= label :scala,"Scala"  %>
+    <%= @variabili.scala%><br/><br/>
+    <%= label :dimensione,"Dimensione/Unità" %>
+    <%= @variabili.dimensione%><br/><br/>
+    <%= label :note,"Note" %>
+    <%= @variabili.note %><br/><br/>
+    </div><br/>
+  
+<h2>Variabili Chimiche/Fisiche</h2><br/>
+    <div class="form-field1">    
+    <%= label :variabile_chimico,"Variabile Chimica" %>
+    <%= @variabili.variabile_chimico %><br/><br/>
+    <%= label :variabile_fisica,"Variabile Fisica" %>  
+    <%= @variabili.variabile_fisica %><br/><br/>
+    </div><br/>
+
+<h2>Strumentazione/Sistema di Valutazione</h2><br/>
+    <div class="form-field1">  
+    <%= label :tipo_attrezzatura,"Tipo di attrezzatura/Tipo di sistema di valutazione" %>
+    <%= @variabili.tipo_attrezzatura %><br/><br/>
+    <%= label :errore_strumentale,"Errore strumentale/Passo della scala di valutazione" %>
+    <%= @variabili.errore_strumentale %><br/><br/>
+    <%= label :tipo_misurazione,"Tipo di misurazione/tipo di scala" %>
+    <%= @variabili.tipo_misurazione %>  <br/><br/>
+    <%= label :taratura,"Taratura dello strumento/Esperienza" %>
+    <%= @variabili.taratura %><br/><br/>
+    </div>
+<h2>Metodologie e Tecniche</h2><br/>
+    <div class="form-field1">  
+    <%= label :metodologia_rilevamento,"Metodologia o tecnica di rilevamento, stima, misurazione" %>
+    <%= @variabili.metodologia_rilevamento %><br/><br/>
+    <%= label :metodologia_raccolta,"Metodo di raccolta o registrazione" %>
+    <%= @variabili.metodologia_raccolta %><br/><br/>
+    <%= label :metodologia_trasporto,"Metodo di trasporto" %>
+    <%= @variabili.metodologia_trasporto %><br/><br/>
+    <%= label :metodologia_conservazione,"Metodo di conservazione" %>
+    <%= @variabili.metodologia_conservazione %><br/><br/>
+    <%= label :metodologia_laboratorio,"Metodo/i di laboratorio" %>
+    <%= @variabili.metodologia_laboratorio %><br/><br/>
+    <%= label :procedure,"Procedure" %>
+    <%= @variabili.procedure %><br/><br/>
+</div>
+<div class="form-field1">    
+    <%= label :aree,"Aree" %>
+    <%= @variabili.aree %><br/><br/>
+    
+    <%= label :comunita,"Comunità" %><br/><br/>
+    <%= @variabili.comunita %><br/><br/>  
+
+    <%= label :popolazioni,"Popolazioni" %><br/><br/>
+    <%= @variabili.popolazioni %><br/><br/>
+
+    <%= label :individui,"Individui" %><br/><br/>
+    <%= @variabili.individui %><br/><br/>
+</div>
+<h2>Unità di Campionamento</h2><br/>
+    <div class="form-field1">  
+    <%= label :numero_campionamento,"Numero" %>
+    <%= @variabili.numero_campionamento %><br/><br/>
+  
+    <%= label :forma_campionamento,"Forma" %>
+    <%= @variabili.forma_campionamento %><br/><br/>
+
+    <%= label :dimensione_campionamento,"Dimensione" %>
+    <%= @variabili.dimensione_campionamento %><br/><br/>
+  
+    <%= label :disposizione_campionamento,"Disposizione" %>
+    <%= @variabili.disposizione_campionamento.join(" ") %> <br/><br/>
+       
+    <%= label :note_campionamento,"Note" %>
+    <%= @variabili.note_campionamento %><br/><br/> 
+    </div>
+
+ <h2>Transetto Ideale/Reale</h2><br/>
+    <div class="form-field1">  
+    <%= label :numero_transetti,"Numero" %>
+    <%= @variabili.numero_transetti %><br/><br/> 
+    <%= label :forma_transetti,"Forma" %>
+    <%= @variabili.forma_transetti %><br/><br/> 
+    <%= label :inizio_transetti,"Inizio" %> 
+    <%= @variabili.inizio_transetti %><br/><br/> 
+    <%= label :fine_transetti,"Fine"%>
+    <%= @variabili.fine_transetti %><br/><br/> 
+    <%= label :dislivello_transetti,"Dislivello" %>
+    <%= @variabili.dislivello_transetti %><br/><br/> 
+    <%= label :orientamento_transetti,"Orientamento"%>
+    <%= @variabili.orientamento_transetti %><br/><br/> 
+    <%= label :note_transetti,"Note" %>
+    <%= @variabili.note_transetti %><br/>
+    </div>
+</div>
+</div>
+<br/><br/>
+<div style="padding-left:150px">
+<%= render 'layouts/footer' %></div>
+</div>
+</div>
+</body>
+</html>
+
+
+
+

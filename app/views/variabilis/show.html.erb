@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="container">
+<title> <%= full_title(yield(:title)) %></title>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+
+<%= csrf_meta_tags %>
+</div>
+</head>
+<body>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+<div class ="container">
+<div class="center hero-unit">
+<h1>Riserva Naturale</h1>
+<h2>"Montagna di Torricchio"</h2>
+<h3> Settore Metadati </h3>
+</div>
+<%= render 'layouts/shim' %>
+<%= render 'layouts/header' %>
+
+<div class ="container">
+<h2>Variabili</h2>
+<table class="table3", align="center">
+<tr>
+<th>Variabile</th>
+<th>Variabile misurata</th>
+<th>Conteggio</th>
+<th>Stima/Valutazione</th>
+<th>Variabile Derivata</th>
+<th>Scala</th>
+<th>Dimensione/Unità</th>
+<th>Note</th>
+</tr>
+
+<tr>
+<td><%= @variabili.nome %> </td>
+<td><%= @variabili.variabile_misurata %></td>
+<td><%= @variabili.conteggio %></td>
+<td><%= @variabili.stima %></td>
+<td><%= @variabili.variabile_derivata %></td>
+<td><%= @variabili.scala%></td>
+<td><%= @variabili.dimensione%></td>
+<td><%= @variabili.note %>></td>
+</tr>
+</table><br/><br/>
+
+<h2>Variabili Chimiche/Fisiche</h2>
+<table class="table3", align="center">
+<tr>
+<th>Variabile Chimica</th>
+<th>Variabile Fisica</th>
+</tr>
+<tr>
+<td><%= @variabili.variabile_chimico %></td>
+<td><%= @variabili.variabile_fisica %></td>
+</tr>
+  </table><br/><br/>
+
+
+<h2>Strumentazione/Sistema di Valutazione</h2>
+<table class="table3", align="center">
+<tr>
+<th>Tipo di attrezzatura/Tipo di sistema di valutazione</th>
+<th>Errore strumentale/Passo della scala di valutazione</th>
+<th>Tipo di misurazione/tipo di scala</th>
+<th>Taratura dello strumento/Esperienza</th>
+</tr>
+
+<tr>
+<td><%= @variabili.tipo_attrezzatura %></td>
+<td><%= @variabili.errore_strumentale %></td>
+<td><%= @variabili.tipo_misurazione %></td>
+<td><%= @variabili.taratura %></td>
+</tr>
+  </table><br/><br/>
+
+
+<h2>Metodologie e Tecniche</h2>
+<table class="table3", align="center">
+<tr>
+<th>Metodologia o tecnica di rilevamento, stima, misurazione</th>
+<th>Metodo di raccolta o registrazione</th>
+<th>Metodo di trasporto</th>
+<th>Metodo di conservazione</th>
+<th>Metodo/i di laboratorio</th>
+<th>Procedure</th>
+
+</tr>
+<tr>
+<td><%= @variabili.metodologia_rilevamento %></td>
+<td><%= @variabili.metodologia_raccolta %></td>
+<td><%= @variabili.metodologia_trasporto %></td>
+<td><%= @variabili.metodologia_conservazione %></td>
+<td><%= @variabili.metodologia_laboratorio %></td>
+<td><%= @variabili.procedure %></td>
+
+</tr>
+  </table><br/><br/>
+
+
+<table class="table3", align="center">
+<tr>
+<th>Aree</th>
+<th>Comunità</th>
+<th>Popolazioni</th>
+<th>Individui</th>
+</tr>
+<tr>
+<td><%= @variabili.aree %></td>
+<td><%= @variabili.comunita %></td>
+<td><%= @variabili.popolazioni %></td>
+<td><%= @variabili.individui %></td>
+
+</tr>
+  </table>
+<br/><br/>
+
+<h2>Unità di Campionamento</h2>
+<table class="table3", align="center">
+<tr>
+<th>Numero</th>
+<th>Forma</th>
+<th>Dimensione</th>
+<th>Disposizione</th>
+<th>Note</th>
+
+</tr>
+<tr>
+<td><%= @variabili.numero_campionamento %></td>
+<td><%= @variabili.forma_campionamento %></td>
+<td><%= @variabili.dimensione_campionamento %></td>
+<td><%= @variabili.disposizione_campionamento.join(" ") %></td>
+<td><%= @variabili.note_campionamento %></td>
+</tr>
+  </table><br/><br/>
+
+<h2>Transetto Ideale/Reale</h2>
+<table class="table3", align="center">
+<tr>
+<th>Numero</th>
+<th>Forma</th>
+<th>Inizio</th>
+<th>Fine</th>
+<th>Dislivello</th>
+<th>Orientamento</th>
+<th>Note</th>
+
+</tr>
+<tr>
+<td><%= @variabili.numero_transetti %></td>
+<td><%= @variabili.forma_transetti %></td>
+<td><%= @variabili.inizio_transetti %></td>
+<td><%= @variabili.fine_transetti %></td>
+<td><%= @variabili.dislivello_transetti %></td>
+<td><%= @variabili.orientamento_transetti %></td>
+<td><%= @variabili.note_transetti %></td>
+
+</tr>
+  </table><br/>
+
+
+</div>
+<div class="maincontent">
+<br/><br/><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>
+
+
+
+

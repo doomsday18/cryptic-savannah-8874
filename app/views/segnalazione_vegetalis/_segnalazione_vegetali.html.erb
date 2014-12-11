@@ -1,0 +1,8 @@
+  <tr>
+        <td><%= segnalazione_vegetali.Titolo %></td>
+        <td><%= segnalazione_vegetali.famiglia_macro %></td>
+        <td><%= segnalazione_vegetali.famiglia_micro %></td>
+        <td><%= l(segnalazione_vegetali.created_at, format:"%e %B %Y %k:%M:%S") %></td>
+        
+        <td><%= link_to 'Mostra', [segnalazione_vegetali.user, segnalazione_vegetali] ,:target => "_blank" %></td>
+  </tr>

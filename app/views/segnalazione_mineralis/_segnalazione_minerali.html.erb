@@ -1,0 +1,6 @@
+<tr>
+    <td><%= segnalazione_minerali.titolo %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><%= l(segnalazione_minerali.created_at, format:"%e %B %Y %k:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><%= link_to 'Mostra', [segnalazione_minerali.user, segnalazione_minerali],:target => "_blank"  %>&nbsp;&nbsp;</td>
+</tr>
+ 

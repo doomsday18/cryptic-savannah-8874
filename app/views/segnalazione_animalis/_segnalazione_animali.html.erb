@@ -1,0 +1,7 @@
+      <tr>
+        <td><%= segnalazione_animali.Titolo  %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= segnalazione_animali.classe %></td>
+        <td><%= l(segnalazione_animali.created_at, format:"%e %B %Y %k:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Mostra', [segnalazione_animali.user, segnalazione_animali] ,:target => "_blank" %>&nbsp;&nbsp;</td>
+      </tr>
+    

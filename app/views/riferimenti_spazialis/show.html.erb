@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Punti:</strong>
+  <%= @riferimenti_spaziali.punti %>
+</p>
+
+<p>
+  <strong>Coordinate:</strong>
+  <%= @riferimenti_spaziali.coordinate %>
+</p>
+
+<p>
+  <strong>Ev descrizione:</strong>
+  <%= @riferimenti_spaziali.ev_descrizione %>
+</p>
+
+<p>
+  <strong>Descrizione globale:</strong>
+  <%= @riferimenti_spaziali.descrizione_globale %>
+</p>
+
+<p>
+  <strong>Modulo2:</strong>
+  <%= @riferimenti_spaziali.modulo2 %>
+</p>
+
+<%= link_to 'Edit', edit_riferimenti_spaziali_path(@riferimenti_spaziali) %> |
+<%= link_to 'Back', riferimenti_spazialis_path %>

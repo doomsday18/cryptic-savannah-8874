@@ -1,0 +1,55 @@
+<h2>Invia nuova segnalazione:<br/> Sezione botanica (vegetale)</h2><br/>
+<p align="justify">In tale sezione vengono dichiarate le specie osservate o riconosciute direttamente in situ, in funzione del personale grado di conoscenza.</p><br/><br/>
+<div class="form-container">  
+<%= form_for([@segnalazione_vegetali.user, @segnalazione_vegetali]) do |f| %>
+  <% if @segnalazione_vegetali.errors.any? %>
+  <% if @segnalazione_minerali.errors.count > 1 %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_vegetali.errors.count, "error") %> Errori nella compilazione della segnalazione: i campi non possono essere vuoti</h2>
+      <%else%>
+       <div id="error_explanation">
+      <h2><%= pluralize(@segnalazione_vegetali.errors.count, "") %> Errore nella compilazione della segnalazione: i campi non possono essere vuoti</h2>        
+      <%end%>
+    </div>
+  <% end %>
+
+  <div class="form-field"> 
+    <%= f.label :Titolo_della_Segnalazione%><br />
+    <%= f.text_field :Titolo %>
+  </div>
+<h2>Osservazioni macroscopiche (direttamente in situ)</h2><br>
+  <div class="form-field"> 
+    <%= f.label :Famiglia %>
+    <%= f.text_field :famiglia_macro %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Genere %>
+    <%= f.text_field :genere_macro %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Foto %>
+    <%= f.check_box :foto%><br><br>
+  </div>
+  <h2>Osservazioni microscopiche (in laboratorio)</h2><br>
+  <div class="form-field"> 
+    <%= f.label :Famiglia %>
+    <%= f.text_field :famiglia_micro %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Genere %>
+    <%= f.text_field :genere_micro %><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Foto %>
+    <%= f.check_box :microfoto %><br><br>
+  </div>
+  <div class="form-field"> 
+    <%= f.label :Campione %>
+    <%= f.check_box :campione %><br/><br/>
+    
+  </div>
+  <div class="actions">
+  <%= f.submit "Invia"%>
+  </div>
+  </div>
+<% end %>

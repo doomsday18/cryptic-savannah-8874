@@ -1,0 +1,44 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Cerca tra tutte le segnalazioni esistenti", new_mineralisearch_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Consulta tutti i Progetti", menumetadati_path %></p>
+<hr>
+<h3>Lista delle segnalazioni dell'utente:</h3>
+<p><%= current_user.email%></p><br/>
+<%= will_paginate @segnalazione_mineralis, :previous_label => 'Prec', :next_label => 'Succ' %>
+<table class="table1">
+
+  <tr>
+    
+    <th>Titolo:</th><br>
+    <th>Creato il:</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+    
+  </tr>
+
+ 
+<% @segnalazione_mineralis.each do |segnalazione_minerali| %>
+  <tr>
+    <td><%= segnalazione_minerali.titolo %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td><%= l(segnalazione_minerali.created_at, format:"%e %B %Y %k:%M:%S") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><%= link_to 'Mostra', [segnalazione_minerali.user, segnalazione_minerali],'data-no-turbolink' => true  %>&nbsp;&nbsp;</td>
+     <td><%= link_to 'Modifica', edit_user_segnalazione_minerali_path(segnalazione_minerali.user, segnalazione_minerali),'data-no-turbolink' => true %>&nbsp;&nbsp;</td>
+ 
+    <td><%= link_to 'Elimina', [segnalazione_minerali.user, segnalazione_minerali], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @segnalazione_mineralis, :previous_label => 'Prec', :next_label => 'Succ' %>
+ <br/><br/><br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione in questo campo', new_user_segnalazione_minerali_path,'data-no-turbolink' => true  %> </p>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr>
+<br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>

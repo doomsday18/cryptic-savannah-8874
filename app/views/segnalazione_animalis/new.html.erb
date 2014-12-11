@@ -1,0 +1,18 @@
+<div class="maincontent">
+<hr>
+<p class="ricercaavanzata"><%= link_to "Cerca in tutte le segnalazioni", new_animalisearch_path %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to "Mostra segnalazioni di questo utente", [@segnalazione_animali.user, @segnalazione_animali] %></p>
+<hr>
+<br/>
+<%= render 'form' %>
+
+<br/><br/>
+<hr>
+<p class="pulsanteverde"><%= link_to 'Torna alla pagina delle segnalazioni', segnalazioni_path(@segnalazione_animali.user) %></p>
+<hr>
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<hr><br/><br/><br/>
+<%= render 'layouts/footer' %>
+</div>
+

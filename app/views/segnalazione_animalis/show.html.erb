@@ -1,0 +1,52 @@
+<div class="maincontent">
+<div class="form-container">
+<div class="form-field">  
+  <h3>Titolo:</h3><br/>
+  <p><%= @segnalazione_animali.Titolo %></p>
+</div>
+
+<div class="form-field">
+  <h3>Classe:</h3><br/>
+  <p><%= @segnalazione_animali.classe %></p>
+</div>
+
+<div class="form-field">
+  <h3>Epiteto o nome volgare:</h3><br/>
+  <p><%= @segnalazione_animali.epiteto %></p>
+</div>
+
+<div class="form-field">
+  <h3>Genere:</h3><br/>
+  <p><%= @segnalazione_animali.genere %></p>
+</div>
+
+<div class="form-field">
+  <h3>Specie:</h3><br/>
+  <p><%= @segnalazione_animali.specie %></p>
+</div>
+
+<div class="form-field">
+  <h3>Autore:</h3><br/>
+  <p><%= @segnalazione_animali.autore %></p>
+</div>
+
+<div class="form-field">
+  <h3>Foto:</h3><br/>
+  <p><%= @segnalazione_animali.foto %></p>
+</div>
+
+<div class="form-field">
+  <h3>User:</h3><br/>
+  <p><%= @segnalazione_animali.user.email %></p>
+</div>
+</div><br/><br/><br/><br/>
+<p class="bottonegrigio"><%= link_to 'Indietro', :back %></p><br/><br/><br/><br/>
+
+<hr>
+<p class="pulsanteverde"><%= link_to 'Nuova Segnalazione', new_user_segnalazione_animali_path %> 
+<p class="pulsanteblu"><%= link_to 'Torna alla pagina Utente', user_pages_path %></p>
+<p class="pulsanteblu"><%= link_to 'Torna alla Pagina delle Segnalazioni', segnalazioni_path %></p>
+<hr>
+
+<%= render 'layouts/footer' %>
+</div>

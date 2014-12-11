@@ -1,0 +1,61 @@
+<%= form_for(@organizzazione_di_riferimento) do |f| %>
+  <% if @organizzazione_di_riferimento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organizzazione_di_riferimento.errors.count, "error") %> prohibited this organizzazione_di_riferimento from being saved:</h2>
+
+      <ul>
+      <% @organizzazione_di_riferimento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :nazione %><br>
+    <%= f.text_field :nazione %>
+  </div>
+  <div class="field">
+    <%= f.label :regione %><br>
+    <%= f.text_field :regione %>
+  </div>
+  <div class="field">
+    <%= f.label :provincia %><br>
+    <%= f.text_field :provincia %>
+  </div>
+  <div class="field">
+    <%= f.label :indirizzo %><br>
+    <%= f.text_field :indirizzo %>
+  </div>
+  <div class="field">
+    <%= f.label :referente %><br>
+    <%= f.text_field :referente %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :tel %><br>
+    <%= f.text_field :tel %>
+  </div>
+  <div class="field">
+    <%= f.label :cell %><br>
+    <%= f.text_field :cell %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_area :url %>
+  </div>
+  <div class="field">
+    <%= f.label :modulo2 %><br>
+    <%= f.text_field :modulo2 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
